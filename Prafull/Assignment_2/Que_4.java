@@ -7,7 +7,7 @@ public class Que_4 {
 		char ch = 'a';
 		int count = 0;
 	    int product = 1;
-		int i = 1;
+		int i = 0;
 
 	    while(ch != 'q') {
 		System.out.println("Enter Next Number or enter q: ");
@@ -23,8 +23,8 @@ public class Que_4 {
 			}
 	    }
 	    
-	    
-	    double avg = count/i;
+	    System.out.println("i is: " + i);
+	    double avg = (double)count/(double)i;
 	    System.out.println("Digit sum is: " + count);
 	    System.out.println("Digit average is: " + avg);
 	    System.out.println("Digit prodcut is: " + product);
