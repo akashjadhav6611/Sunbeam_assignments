@@ -18,7 +18,7 @@ public class ProgramD2_2 {
 		ForEvenNum(LB , UB);  // calling method
 	}
 
-// Method to calculate Sum of Even Numbers:
+// Method to calculate Sum of Odd Numbers:
 	
 	static void ForOddNum(int LB , int UB) {
 		
