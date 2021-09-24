@@ -1,0 +1,16 @@
+package trying;
+
+import java.util.Scanner;
+
+public class try_1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+Scanner sobj = new Scanner(System.in);
+int num = sobj.nextInt();
+System.out.println(num);
+
+
+	}
+
+}

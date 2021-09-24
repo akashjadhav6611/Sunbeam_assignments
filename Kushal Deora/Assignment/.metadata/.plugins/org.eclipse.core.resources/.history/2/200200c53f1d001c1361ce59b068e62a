@@ -1,0 +1,35 @@
+
+package Que2;
+
+import java.util.Scanner;
+
+public class que2 {
+
+	public static void main(String args[])
+	{
+
+		Employee e1 =new Employee();
+		e1.get_Data();
+		e1.put_Data();
+	
+}
+}
+
+class Employee {
+private String name;
+private int year;
+private int salary;
+private String address;
+Scanner sc = new Scanner(System.in)
+public void get_Data()
+{
+	name=sc.next();
+	year=sc.nextInt();
+	salary=sc.nextInt();
+	address=sc.next();
+}
+public void put_Data()
+{
+	System.out.print(name+" "+year+" "+address);
+}
+}
