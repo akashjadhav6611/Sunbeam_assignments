@@ -11,23 +11,32 @@
  * with different name and id and call display method.
  * */
 
-class Employee{
-	private static String name;
-	private static String id;
-	private static String comapny; 
+class Employee {
+	private String name;
+	private int id;
+	private static String nameOfCompany;
 	
-	Employee(String n, String i){
-		this.name = n;
-		this.id = i;
+	Employee(String n, int i) {
+		name = n;
+		id = i;
+	}
+	static {
+		nameOfCompany = "Sunbeam";
+	}
+	public void display() {
+		System.out.println(name + " has id " + id + " is in " + nameOfCompany);
 	}
 }
 
 public class Que_2 {
 
 	public static void main(String[] args) {
-	
+		Employee e = new Employee("Rohan", 10);
+		e.display();
 		
-		
+		Employee e1 = new Employee("Rakesh", 20);
+		e1.display();
 	}
 
 }
+
