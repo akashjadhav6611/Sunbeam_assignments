@@ -2,7 +2,8 @@ package Que2;
 class Employee
 {
 	private int id;
-	private static String name="Sunbeam";
+	private String name;
+	private static String C_name="Sunbeam";
 	Employee(int id,String name)
 	{
 		this.id=id;
@@ -10,7 +11,7 @@ class Employee
 	}
 	void display()
 	{
-		System.out.println("ID:"+this.id+" Name:"+this.name);
+		System.out.println("ID:"+this.id+" Name:"+this.name+" Company:"+ this.C_name);
 		
 	}
 }
@@ -21,14 +22,10 @@ public class que2 {
 Employee e1=new Employee(1,"Kushal");
 e1.display();
 System.out.println("");
-Employee e2=new Employee(2,"Deora");
+Employee e2=new Employee(2,"Amit");
 e1.display();
 e2.display();
-System.out.println("");
-Employee e3=new Employee(3,"Sunbeam");
-e1.display();
-e2.display();
-e3.display();
+
 	}
 
 }
