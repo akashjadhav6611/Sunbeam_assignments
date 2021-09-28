@@ -3,15 +3,19 @@ class Employee
 {
 	private int id;
 	private String name;
-	private static String C_name="Sunbeam";
+	private static String C_name;
 	Employee(int id,String name)
 	{
 		this.id=id;
 		this.name=name;
 	}
+	static
+	{
+		C_name="Sunbeam";
+	}
 	void display()
 	{
-		System.out.println("ID:"+this.id+" Name:"+this.name+" Company:"+ this.C_name);
+		System.out.println("ID:"+this.id+" Name:"+this.name+" Company:"+ Employee.C_name);
 		
 	}
 }

@@ -3,7 +3,12 @@ package Question_2;
 class Employee{
 	private int id;
 	private String name;
-	private static String company_name="Sunbeam";
+	private static String company_name;
+	
+	static {
+		Employee.company_name="Sunbeam";
+	}
+	
 	public Employee(int i, String n ){
 		this.id = i;
 		this.name = n;
