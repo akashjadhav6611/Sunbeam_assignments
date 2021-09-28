@@ -1,0 +1,24 @@
+package Que1;
+class Rectangle
+{private int l;
+private int b;
+Rectangle(int l, int b)
+{
+	this.l=l;
+	this.b=b;
+}
+	public int area()
+	{
+		return (l*b);
+	}
+}
+public class que1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Rectangle r=new Rectangle(109,20);
+		int rs= r.area();
+		System.out.print(rs);
+	}
+
+}
