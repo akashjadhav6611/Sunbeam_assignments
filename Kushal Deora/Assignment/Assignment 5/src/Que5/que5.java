@@ -2,6 +2,7 @@ package Que5;
 
 import java.util.Scanner;
 
+
 public class que5 {
 
 	public static void main(String[] args) {

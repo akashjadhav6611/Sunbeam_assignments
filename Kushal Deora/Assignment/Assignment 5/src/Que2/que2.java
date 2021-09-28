@@ -23,6 +23,7 @@ System.out.println("Enter elements");
 for(int i=0;i<5;i++)
 {
 	array[i]=sc.nextInt();
+	
 }
 s1.sort_array(array);
 	}

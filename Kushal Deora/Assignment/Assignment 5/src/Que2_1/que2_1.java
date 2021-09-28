@@ -14,6 +14,7 @@ class sort
 					int temp=arry[j];
 					arry[j]=arry[i];
 					arry[i]=temp;
+					
 				}
 			}
 		}

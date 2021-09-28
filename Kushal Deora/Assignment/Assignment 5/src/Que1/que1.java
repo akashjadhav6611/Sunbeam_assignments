@@ -28,12 +28,14 @@ public class que1 {
 		int subarr[]=new int[sze];
 		for(int i=0;i<sze;i++,s++)
 		{
+			
 			subarr[i]=a[s];
 		}
-		System.out.println("Elements of Sub Array:");
+		System.out.println("Elements of Sub Array::");
 		for(int i=0;i<sze;i++)
 		{
 			System.out.print(subarr[i]+", ");
+			
 			
 		}
 	}

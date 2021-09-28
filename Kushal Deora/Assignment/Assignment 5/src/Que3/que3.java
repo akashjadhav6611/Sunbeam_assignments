@@ -2,6 +2,7 @@ package Que3;
 
 import java.util.Scanner;
 
+
 public class que3 {
 
 	public static void main(String[] args) {
