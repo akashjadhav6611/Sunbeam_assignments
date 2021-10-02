@@ -3,6 +3,6 @@
 bin/*
 */.settings/*
 .settings/*
-/Saurabh_56588_D3_Practice/.class
-/Saurabh_56588_D3_Practice/.classpath
-/Saurabh_56588_D3_Practice/.project
+*.class
+*.classpath
+*.project
