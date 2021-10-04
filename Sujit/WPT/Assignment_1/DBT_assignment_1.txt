@@ -1,0 +1,166 @@
+>mysql -u root -p
+Enter password: *******
+
+mysql> CREATE USER d2_5660@localhost IDENTIFIED BY 'd2_56660';
+Query OK, 0 rows affected (0.02 sec)
+
+
+mysql> CREATE DATABASE spj;
+Query OK, 1 row affected (0.01 sec)
+
+
+
+
+mysql> GRANT ALL PRIVILEGES ON spj.* TO d2_56660@localhost;
+Query OK, 0 rows affected (0.01 sec)
+
+
+mysql> FLUSH PRIVILEGES;
+
+
+mysql> EXIT;
+Bye
+
+
+>mysql -u d2_56660 -p
+Enter password: d2_56660
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 12
+Server version: 8.0.26 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+
+
+
+d2_56660>USE spj;
+Database changed
+
+d2_56660>CREATE TABLE S (`S#` CHAR(5), Sname CHAR(20), Status INT, City CHAR(15));
+Query OK, 0 rows affected (0.05 sec)
+
+d2_56660>show tables;
++---------------+
+| Tables_in_spj |
++---------------+
+| s             |
++---------------+
+1 row in set (0.01 sec)
+
+d2_56660>INSERT INTO S VALUES('S1','Smith',20,'London'),('S2','Jones',10,'Paris'),('S3','Blake',30,'Paris'),('S4','Clark',20,'London'),('S5','Adams',30,'Athens');
+
+
+
+d2_56660>SELECT * FROM s;
++------+-------+--------+--------+
+| S#   | Sname | Status | City   |
++------+-------+--------+--------+
+| S1   | Smith |     20 | London |
+| S2   | Jones |     10 | Paris  |
+| S3   | Blake |     30 | Paris  |
+| S4   | Clark |     20 | London |
+| S5   | Adams |     30 | Athens |
++------+-------+--------+--------+
+5 rows in set (0.00 sec)
+
+
+d2_56660>CREATE TABLE p (`P#` CHAR(6), Pname CHAR(20), Color CHAR(6), Weight INT , CITY CHAR(15));
+Query OK, 0 rows affected (0.03 sec)
+
+
+d2_56660>SHOW TABLES;
++---------------+
+| Tables_in_spj |
++---------------+
+| p             |
+| s             |
++---------------+
+
+d2_56660>INSERT INTO P VALUES ('P1','Nut','Red',12,'London'),('P2','Bolt','Green',17,'Paris'),('P3','Screw','Blue',17,'Rome'),('P4','Screw','Red',14,'London'),('P5','Cam','Blue',12,'Paris'),('P6','Cog','Red',19,'London');
+
+
+
+d2_56660>SELECT * FROM p;
++------+-------+-------+--------+--------+
+| P#   | Pname | Color | Weight | CITY   |
++------+-------+-------+--------+--------+
+| P1   | Nut   | Red   |     12 | London |
+| P2   | Bolt  | Green |     17 | Paris  |
+| P3   | Screw | Blue  |     17 | Rome   |
+| P4   | Screw | Red   |     14 | London |
+| P5   | Cam   | Blue  |     12 | Paris  |
+| P6   | Cog   | Red   |     19 | London |
++------+-------+-------+--------+--------+
+6 rows in set (0.00 sec)
+
+
+d2_56660>CREATE TABLE j (`J#` CHAR(4), Jname CHAR(10), City CHAR(15));
+Query OK, 0 rows affected (0.55 sec)
+
+
+d2_56660>INSERT INTO J VALUES ('J1','Sorter','Paris'),('J2','Punch','Rome'),('J3','Reader','Athens'),('J4','Console','Athens'),('J5','Collator','London'),('J6','Terminal','Oslo'),('J7','Tape','London');
+Query OK, 7 rows affected (0.13 sec)
+Records: 7  Duplicates: 0  Warnings: 0
+
+
+d2_56660>SELECT * FROM J;
++------+----------+--------+
+| J#   | Jname    | City   |
++------+----------+--------+
+| J1   | Sorter   | Paris  |
+| J2   | Punch    | Rome   |
+| J3   | Reader   | Athens |
+| J4   | Console  | Athens |
+| J5   | Collator | London |
+| J6   | Terminal | Oslo   |
+| J7   | Tape     | London |
++------+----------+--------+
+7 rows in set (0.00 sec)
+
+d2_56660>CREATE TABLE sp (`S#` CHAR(4), `P#` CHAR(4), `J#` CHAR(4), QTY INT);
+Query OK, 0 rows affected (1.13 sec)
+
+
+d2_56660>INSERT INTO sp VALUES ('S1', 'P1', 'J1', 200), ('S1', 'P1', 'J4', 700), ('S2', 'P3', 'J1', 400), ('S2', 'P3', 'J2', 200), ('S2', 'P3', 'J3', 200), ('S2', 'P3', 'J4', 500), ('S2', 'P3', 'J5', 600), ('S2', 'P3', 'J6', 400), ('S2', 'P3', 'J7', 800), ('S2', 'P5', 'J2', 100), ('S3', 'P3', 'J1', 200), ('S3', 'P4', 'J2', 500), ('S4', 'P6', 'J3', 300), ('S4', 'P6', 'J7', 700), ('S5', 'P2', 'J2', 200), ('S5', 'P2', 'J4', 100), ('S5', 'P2', 'J4', 100), ('S5', 'P5', 'J5', 500), ('S5', 'P5', 'J7', 100), ('S1', 'P1', 'J4', 700), ('S5', 'P6', 'J2', 200), ('S5', 'P1', 'J4', 100), ('S5', 'P3', 'J4', 200), ('S5', 'P4', 'J4', 800), ('S5', 'P5', 'J4', 400), ('S5', 'P6', 'J4', 500);
+Query OK, 26 rows affected (0.18 sec)
+Records: 26  Duplicates: 0  Warnings: 0
+
+
+d2_56660>SELECT * FROM sp;
++------+------+------+------+
+| S#   | P#   | J#   | QTY  |
++------+------+------+------+
+| S1   | P1   | J1   |  200 |
+| S1   | P1   | J4   |  700 |
+| S2   | P3   | J1   |  400 |
+| S2   | P3   | J2   |  200 |
+| S2   | P3   | J3   |  200 |
+| S2   | P3   | J4   |  500 |
+| S2   | P3   | J5   |  600 |
+| S2   | P3   | J6   |  400 |
+| S2   | P3   | J7   |  800 |
+| S2   | P5   | J2   |  100 |
+| S3   | P3   | J1   |  200 |
+| S3   | P4   | J2   |  500 |
+| S4   | P6   | J3   |  300 |
+| S4   | P6   | J7   |  700 |
+| S5   | P2   | J2   |  200 |
+| S5   | P2   | J4   |  100 |
+| S5   | P2   | J4   |  100 |
+| S5   | P5   | J5   |  500 |
+| S5   | P5   | J7   |  100 |
+| S1   | P1   | J4   |  700 |
+| S5   | P6   | J2   |  200 |
+| S5   | P1   | J4   |  100 |
+| S5   | P3   | J4   |  200 |
+| S5   | P4   | J4   |  800 |
+| S5   | P5   | J4   |  400 |
+| S5   | P6   | J4   |  500 |
++------+------+------+------+
+26 rows in set (0.00 sec)
