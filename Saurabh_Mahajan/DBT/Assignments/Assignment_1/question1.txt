@@ -1,0 +1,20 @@
+>mysql -u root -p
+Enter password: manager
+
+mysql> CREATE USER D3_56588@localhost IDENTIFIED BY 'D3_56588';
+Query OK, 0 rows affected (0.02 sec)
+
+
+mysql> CREATE DATABASE spj;
+Query OK, 1 row affected (0.01 sec)
+
+
+mysql> GRANT ALL PRIVILEGES ON spj.* TO d1_rollno@localhost;
+Query OK, 0 rows affected (0.01 sec)
+
+
+mysql> FLUSH PRIVILEGES;
+
+
+mysql> EXIT;
+Bye
