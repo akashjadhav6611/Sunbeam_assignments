@@ -1,0 +1,81 @@
+Question 1
+mysql -u root -p
+Enter password: **********
+ mysql>CREATE USER D3_56656@localhost IDENTIFIED BY'sunbeam';
+ mysql>exit;
+ 
+ Question 2
+ This PC (right click) --> Properties --> Advanced System Settings --> Advanced --> Environment Variables-->Click on new Variable
+ --> Set variable Name as MYSQL_PS1 and set Variable Value as \u> -->Click Ok
+ 
+ Question 3
+ mysql -u root -p
+Enter password: **********
+root>CREATE DATABASE spj;
+root>GRANT ALL PRIVILEGES ON sp.* TO D3_56656@localhost;
+root>FLUSH PRIVILEGES;
+root>exit;
+
+ Question 4
+ >mysql -u D3_56656 -p
+ Enter password: *******
+ D3_56656>SELECT USER(),DATABASE();
+ D3_56656>USE spj;
+ D3_56656>CREATE TABLE S (`S#` CHAR(5), Sname CHAR(20), Status INT, City CHAR(15));
+ 
+ D3_56656>INSERT INTO S VALUES('S1','Smith',20,'London');
+ D3_56656>INSERT INTO S VALUES('S2','Jones',10,'Paris');
+ D3_56656>INSERT INTO S VALUES('S3','Blake',30,'Paris');
+ D3_56656>INSERT INTO S VALUES('S4','Clark',20,'London');
+ D3_56656>INSERT INTO S VALUES('S5','Adams',30,'Athens');
+ D3_56656>SELECT * FROM S;
+ 
+ D3_56656>CREATE TABLE P (`P#` CHAR(6), Pname CHAR(20), Color CHAR(6), Weight INT , CITY CHAR(15));
+ 
+ D3_56656>INSERT INTO P VALUES('P1','Nut','Red',12,'London');
+ D3_56656>INSERT INTO P VALUES('P2','Bolt','Green',17,'Paris');
+ D3_56656>INSERT INTO P VALUES('P3','Screw','Blue',17,'Rome');
+ D3_56656>INSERT INTO P VALUES('P4','Screw','Red',14,'London');
+ D3_56656>INSERT INTO P VALUES('P5','Cam','Blue',12,'Paris');
+ D3_56656>INSERT INTO P VALUES('P6','Cog','Red',19,'London');
+ D3_56656>SELECT * FROM P;
+ 
+ D3_56656>CREATE TABLE J (`J#` CHAR(4), Jname CHAR(10), City CHAR(15));
+ 
+ D3_56656>INSERT INTO J VALUES('J1','Sorter','Paris');
+ D3_56656>INSERT INTO J VALUES('J2','Punch','Rome');
+ D3_56656>INSERT INTO J VALUES('J3','Reader','Athens');
+ D3_56656>INSERT INTO J VALUES('J4','Console','Athens');
+ D3_56656>INSERT INTO J VALUES('J5','Collator','London');
+ D3_56656>INSERT INTO J VALUES('J6','Terminal','Oslo');
+ D3_56656>INSERT INTO J VALUES('J7','Tape','London');
+ D3_56656>SELECT * FROM J;
+ 
+ D3_56656>CREATE TABLE sp (`S#` CHAR(4), `P#` CHAR(4), `J#` CHAR(4), QTY INT);
+ 
+ D3_56656>INSERT INTO sp VALUES('S1','P1','J1',200);
+ D3_56656>INSERT INTO sp VALUES('S1','P1','J4',700);
+ D3_56656>INSERT INTO sp VALUES('S2','P3','J1',400);
+ D3_56656>INSERT INTO sp VALUES('S2','P3','J2',200);
+ D3_56656>INSERT INTO sp VALUES('S2','P3','J3',200);
+ D3_56656>INSERT INTO sp VALUES('S2','P3','J4',500);
+ D3_56656>INSERT INTO sp VALUES('S2','P3','J5',600);
+ D3_56656>INSERT INTO sp VALUES('S2','P3','J6',400);
+ D3_56656>INSERT INTO sp VALUES('S2','P3','J7',800);
+ D3_56656>INSERT INTO sp VALUES('S2','P5','J2',100);
+ D3_56656>INSERT INTO sp VALUES('S3','P3','J1',200);
+ D3_56656>INSERT INTO sp VALUES('S3','P4','J2',500);
+ D3_56656>INSERT INTO sp VALUES('S4','P6','J3',300);
+ D3_56656>INSERT INTO sp VALUES('S4','P6','J7',300);
+ D3_56656>INSERT INTO sp VALUES('S5','P2','J2',200);
+ D3_56656>INSERT INTO sp VALUES('S5','P2','J4',100);
+ D3_56656>INSERT INTO sp VALUES('S5','P5','J5',500);
+ D3_56656>INSERT INTO sp VALUES('S5','P5','J7',100);
+ D3_56656>INSERT INTO sp VALUES('S5','P6','J2',200);
+ D3_56656>INSERT INTO sp VALUES('S5','P1','J4',100);
+ D3_56656>INSERT INTO sp VALUES('S5','P3','J4',200);
+ D3_56656>INSERT INTO sp VALUES('S5','P4','J4',800);
+ D3_56656>INSERT INTO sp VALUES('S5','P5','J4',400);
+ D3_56656>INSERT INTO sp VALUES('S5','P6','J4',500);
+ D3_56656>SELECT * FROM sp;
+ D3_56656>exit;
