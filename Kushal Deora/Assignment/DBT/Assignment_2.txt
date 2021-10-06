@@ -1,0 +1,138 @@
+Question 1
+>mysql -u root -p
+Enter password: **********
+root>CREATE DATABASE classwork;
+root>USE classwork;
+root>SOURCE E:/Kushal/PG_DAC/dbt/db/classwork-db.sql;
+
+Question 2
+root>CREATE DATABASE hr;
+root>USE hr;
+root>SOURCE E:/Kushal/PG_DAC/dbt/db/hr-db.sql;
+
+Question 3
+
+root>CREATE DATABASE sales;
+root>USE sales;
+root>SOURCE E:/Kushal/PG_DAC/dbt/db/sales-db.sql;
+
+Question 4
+root>CREATE DATABASE northwind;
+root>USE northwind;
+root>SOURCE E:/Kushal/PG_DAC/dbt/db/northwind-db.sql;
+
+Question 5
+root>USE classwork;
+root>SHOW TABLES;
+root>SELECT * FROM bonus;
+root>SELECT * FROM books;
+root>SELECT * FROM dept;
+root>SELECT * FROM dummy;
+root>SELECT * FROM emp;
+root>SELECT * FROM salgrade;
+
+Question 6
+root>USE sales;
+root>SHOW tables;
+root>SELECT * FROM customers;
+root>SELECT * FROM orders;
+root>SELECT * FROM salespeople;
+
+Question 7
+root>exit;
+>mysql -u D3_56656 -p
+Enter password: *******
+D3_56656>USE sales;
+D3_56656>SHOW tables;
+D3_56656>SELECT * FROM customers;
+D3_56656>SELECT * FROM orders;
+D3_56656>SELECT * FROM salespeople;
+
+a.-10
+b.-7
+c.-5
+d.-1990-10-04
+e.-3011
+f.-0
+g.-Berlin
+h.-London
+i.-Hoffman(customer),Peel(salespeople)
+
+Question 8
+Study of relationship has been done.
+
+Question 9
+D3_56656>USE sales;
+D3_56656>SELECT onum,amt,odate FROM orders;
+
+Question 10
+D3_56656>SELECT city,sname,snum,comm FROM salespeople;
+
+Question 11
+D3_56656>SELECT * FROM customers WHERE snum=1001;
+
+Question 12
+D3_56656>SELECT rating,cname FROM customers;
+
+Question 13
+D3_56656>SELECT DISTINCT snum  FROM orders;
+
+Question 14
+D3_56656>SELECT * FROM orders WHERE amt>1000;
+
+Question 15
+D3_56656>SELECT sname,city FROM salespeople WHERE city='London' AND comm>0.10;
+
+Question 16
+D3_56656>SELECT * FROM customers WHERE  (rating>100) OR(city='Rome');
+
+Question 17
+D3_56656>SELECT * FROM orders WHERE amt IS NOT NULL OR amt!=0;
+
+Question 18
+D3_56656>USE spj;
+D3_56656>Select * FROM S;
+
+Question 19
+D3_56656>Select `S#`,Sname FROM S;
+
+Question 20
+D3_56656>SELECT Weight,Weight/1000 as KG,Weight*1000 as MG FROM P;
+
+Question 21
+D3_56656>SELECT Pname,Color FROM P WHERE CITY='London';
+
+Question 22
+D3_56656>SELECT Sname FROM S WHERE City='London';
+
+Question 23
+D3_56656>SELECT Sname FROM S WHERE City='Paris' OR City='Athens';
+
+Question 24
+D3_56656>SELECT * FROM J WHERE City='Athens';
+
+Question 25
+D3_56656>SELECT Pname FROM P WHERE Weight>=12 AND Weight<=14;
+
+Question 26
+D3_56656>SELECT * FROM S WHERE Status>=20;
+
+Question 27
+D3_56656>SELECT * FROM S WHERE NOT City='London';
+
+Question 28
+D3_56656>SELECT City FROM S;
+
+Question 29
+D3_56656>SELECT * FROM S ORDER BY City DESC;
+
+Question 30
+D3_56656>SELECT * FROM P ORDER BY City ASC, Pname ASC;
+
+Question 31
+D3_56656>SELECT * FROM S WHERE Status>10 AND Status<20;
+
+Question 32
+D3_56656>SELECT Pname,Weight FROM P WHERE NOT (Weight>=10 AND Weight<=15);
+
+
