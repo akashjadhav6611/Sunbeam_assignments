@@ -1,0 +1,505 @@
+
+
+--1. Write a query to display the first_name, last_name using alias name “First Name", 
+--"Last Name".
+D4_56329> select first_name AS 'First Name', last_name AS 'Last Name'from employees LIMIT 5;
++------------+-----------+
+| First Name | Last Name |
++------------+-----------+
+| Ellen      | Abel      |
+| Sundar     | Ande      |
+| Mozhe      | Atkinson  |
+| David      | Austin    |
+| Hermann    | Baer      |
++------------+-----------+
+5 rows in set (0.00 sec)
+
+--2. Write a query to get the names (first_name, last_name), salary, PF of all the 
+--employees (PF is calculated as 15% of salary)
+   D4_56329> select first_name,last_name,salary,salary*0.15 AS PF from employees LIMIT 5;
++------------+-----------+----------+-----------+
+| first_name | last_name | salary   | PF        |
++------------+-----------+----------+-----------+
+| Steven     | King      | 24000.00 | 3600.0000 |
+| Neena      | Kochhar   | 17000.00 | 2550.0000 |
+| Lex        | De Haan   | 17000.00 | 2550.0000 |
+| Alexander  | Hunold    |  9000.00 | 1350.0000 |
+| Bruce      | Ernst     |  6000.00 |  900.0000 |
++------------+-----------+----------+-----------+
+5 rows in set (0.00 sec)
+
+--3. Write a query to select first 10 records from a employees table.
+D4_56329> select * from employees LIMIT 10;
++-------------+------------+-----------+----------+--------------+------------+------------+----------+----------------+------------+---------------+
+| EMPLOYEE_ID | FIRST_NAME | LAST_NAME | EMAIL    | PHONE_NUMBER | HIRE_DATE  | JOB_ID     | SALARY   | COMMISSION_PCT | MANAGER_ID | DEPARTMENT_ID |
++-------------+------------+-----------+----------+--------------+------------+------------+----------+----------------+------------+---------------+
+|         100 | Steven     | King      | SKING    | 515.123.4567 | 1987-06-17 | AD_PRES    | 24000.00 |           0.00 |          0 |            90 |
+|         101 | Neena      | Kochhar   | NKOCHHAR | 515.123.4568 | 1987-06-18 | AD_VP      | 17000.00 |           0.00 |        100 |            90 |
+|         102 | Lex        | De Haan   | LDEHAAN  | 515.123.4569 | 1987-06-19 | AD_VP      | 17000.00 |           0.00 |        100 |            90 |
+|         103 | Alexander  | Hunold    | AHUNOLD  | 590.423.4567 | 1987-06-20 | IT_PROG    |  9000.00 |           0.00 |        102 |            60 |
+|         104 | Bruce      | Ernst     | BERNST   | 590.423.4568 | 1987-06-21 | IT_PROG    |  6000.00 |           0.00 |        103 |            60 |
+|         105 | David      | Austin    | DAUSTIN  | 590.423.4569 | 1987-06-22 | IT_PROG    |  4800.00 |           0.00 |        103 |            60 |
+|         106 | Valli      | Pataballa | VPATABAL | 590.423.4560 | 1987-06-23 | IT_PROG    |  4800.00 |           0.00 |        103 |            60 |
+|         107 | Diana      | Lorentz   | DLORENTZ | 590.423.5567 | 1987-06-24 | IT_PROG    |  4200.00 |           0.00 |        103 |            60 |
+|         108 | Nancy      | Greenberg | NGREENBE | 515.124.4569 | 1987-06-25 | FI_MGR     | 12000.00 |           0.00 |        101 |           100 |
+|         109 | Daniel     | Faviet    | DFAVIET  | 515.124.4169 | 1987-06-26 | FI_ACCOUNT |  9000.00 |           0.00 |        108 |           100 |
++-------------+------------+-----------+----------+--------------+------------+------------+----------+----------------+------------+---------------+
+10 rows in set (0.00 sec)
+
+--4. Write a query to display job id and job title of first 5 jobs.
+D4_56329> select job_id, job_title from employees LIMIT 5;
+ERROR 1054 (42S22): Unknown column 'job_title' in 'field list'
+D4_56329> select job_id, job_title from jobs LIMIT 5;
++------------+-------------------------------+
+| job_id     | job_title                     |
++------------+-------------------------------+
+| AD_PRES    | President                     |
+| AD_VP      | Administration Vice President |
+| AD_ASST    | Administration Assistant      |
+| FI_MGR     | Finance Manager               |
+| FI_ACCOUNT | Accountant                    |
++------------+-------------------------------+
+5 rows in set (0.01 sec)
+
+--5. Write a query to display location id, street address and postal code of 6 locations 
+--after first 3 locations.
+D4_56329> select location_id, street_address, postal_code from locations LIMIT 3,6;
++-------------+---------------------+-------------+
+| location_id | street_address      | postal_code |
++-------------+---------------------+-------------+
+|        1300 | 9450 Kamiya-cho     | 6823        |
+|        1400 | 2014 Jabberwocky Rd | 26192       |
+|        1500 | 2011 Interiors Blvd | 99236       |
+|        1600 | 2007 Zagora St      | 50090       |
+|        1700 | 2004 Charade Rd     | 98199       |
+|        1800 | 147 Spadina Ave     | M5V 2L7     |
++-------------+---------------------+-------------+
+6 rows in set (0.00 sec)
+
+--6. Write a query to display job title and difference between max and min salary for that 
+--job.
+D4_56329> select job_title, Max_salary - Min_salary AS 'DIFF' from jobs;
++---------------------------------+-------+
+| job_title                       | DIFF  |
++---------------------------------+-------+
+| President                       | 20000 |
+| Administration Vice President   | 15000 |
+| Administration Assistant        |  3000 |
+| Finance Manager                 |  7800 |
+| Accountant                      |  4800 |
+| Accounting Manager              |  7800 |
+| Public Accountant               |  4800 |
+| Sales Manager                   | 10000 |
+| Sales Representative            |  6000 |
+| Purchasing Manager              |  7000 |
+| Purchasing Clerk                |  3000 |
+| Stock Manager                   |  3000 |
+| Stock Clerk                     |  3000 |
+| Shipping Clerk                  |  3000 |
+| Programmer                      |  6000 |
+| Marketing Manager               |  6000 |
+| Marketing Representative        |  5000 |
+| Human Resources Representative  |  5000 |
+| Public Relations Representative |  6000 |
++---------------------------------+-------+
+19 rows in set (0.00 sec)
+
+--7. Write a query to get unique department ID from employee table.
+D4_56329> select DISTINCT department_id from employees;
++---------------+
+| department_id |
++---------------+
+|             0 |
+|            10 |
+|            20 |
+|            30 |
+|            40 |
+|            50 |
+|            60 |
+|            70 |
+|            80 |
+|            90 |
+|           100 |
+|           110 |
++---------------+
+12 rows in set (0.00 sec)
+
+--9. Write a query to get the employee ID, names (first_name, last_name),
+--salary in ascending order of salary.
+D4_56329> select employee_id ,first_name, last_name, salary from employees ORDER BY salary LIMIT 5 ;
++-------------+------------+------------+---------+
+| employee_id | first_name | last_name  | salary  |
++-------------+------------+------------+---------+
+|         132 | TJ         | Olson      | 2100.00 |
+|         128 | Steven     | Markle     | 2200.00 |
+|         136 | Hazel      | Philtanker | 2200.00 |
+|         135 | Ki         | Gee        | 2400.00 |
+|         127 | James      | Landry     | 2400.00 |
++-------------+------------+------------+---------+
+5 rows in set (0.00 sec)
+
+--10. Display first name and join date of the employees who is either IT Programmer or 
+--Sales Man.
+D4_56329> select first_name,hire_date,job_id from employees where job_id in ('it_prog', 'sa_man');
++------------+------------+---------+
+| first_name | hire_date  | job_id  |
++------------+------------+---------+
+| Alexander  | 1987-06-20 | IT_PROG |
+| Bruce      | 1987-06-21 | IT_PROG |
+| David      | 1987-06-22 | IT_PROG |
+| Valli      | 1987-06-23 | IT_PROG |
+| Diana      | 1987-06-24 | IT_PROG |
+| John       | 1987-08-01 | SA_MAN  |
+| Karen      | 1987-08-02 | SA_MAN  |
+| Alberto    | 1987-08-03 | SA_MAN  |
+| Gerald     | 1987-08-04 | SA_MAN  |
+| Eleni      | 1987-08-05 | SA_MAN  |
++------------+------------+---------+
+10 rows in set (0.00 sec)
+
+
+--11. Display details of employee with ID 150 or 160.
+D4_56329> select * from employees where employee_id in(150 ,160);
++-------------+------------+-----------+---------+--------------------+------------+--------+----------+----------------+------------+---------------+
+| EMPLOYEE_ID | FIRST_NAME | LAST_NAME | EMAIL   | PHONE_NUMBER       | HIRE_DATE  | JOB_ID | SALARY   | COMMISSION_PCT | MANAGER_ID | DEPARTMENT_ID |
++-------------+------------+-----------+---------+--------------------+------------+--------+----------+----------------+------------+---------------+
+|         150 | Peter      | Tucker    | PTUCKER | 011.44.1344.129268 | 1987-08-06 | SA_REP | 10000.00 |           0.30 |        145 |            80 |
+|         160 | Louise     | Doran     | LDORAN  | 011.44.1345.629268 | 1987-08-16 | SA_REP |  7500.00 |           0.30 |        146 |            80 |
++-------------+------------+-----------+---------+--------------------+------------+--------+----------+----------------+------------+---------------+
+2 rows in set (0.00 sec)
+
+--12. Display first name, salary, commission pct, and hire date for employees with salary less than 10000.
+D4_56329> select first_name , salary, commission_pct, hire_date from employees where salary<10000;
++-------------+---------+----------------+------------+
+| first_name  | salary  | commission_pct | hire_date  |
++-------------+---------+----------------+------------+
+| Alexander   | 9000.00 |           0.00 | 1987-06-20 |
+| Bruce       | 6000.00 |           0.00 | 1987-06-21 |
+| David       | 4800.00 |           0.00 | 1987-06-22 |
+| Valli       | 4800.00 |           0.00 | 1987-06-23 |
+| Diana       | 4200.00 |           0.00 | 1987-06-24 |
+| Daniel      | 9000.00 |           0.00 | 1987-06-26 |
+| John        | 8200.00 |           0.00 | 1987-06-27 |
+| Ismael      | 7700.00 |           0.00 | 1987-06-28 |
+| Jose Manuel | 7800.00 |           0.00 | 1987-06-29 |
+| Luis        | 6900.00 |           0.00 | 1987-06-30 |
+| Alexander   | 3100.00 |           0.00 | 1987-07-02 |
+| Shelli      | 2900.00 |           0.00 | 1987-07-03 |
+| Sigal       | 2800.00 |           0.00 | 1987-07-04 |
+| Guy         | 2600.00 |           0.00 | 1987-07-05 |
+| Karen       | 2500.00 |           0.00 | 1987-07-06 |
+| Matthew     | 8000.00 |           0.00 | 1987-07-07 |
+| Adam        | 8200.00 |           0.00 | 1987-07-08 |
+| Payam       | 7900.00 |           0.00 | 1987-07-09 |
+| Shanta      | 6500.00 |           0.00 | 1987-07-10 |
+| Kevin       | 5800.00 |           0.00 | 1987-07-11 |
+| Julia       | 3200.00 |           0.00 | 1987-07-12 |
+| Irene       | 2700.00 |           0.00 | 1987-07-13 |
+| James       | 2400.00 |           0.00 | 1987-07-14 |
+| Steven      | 2200.00 |           0.00 | 1987-07-15 |
+| Laura       | 3300.00 |           0.00 | 1987-07-16 |
+| Mozhe       | 2800.00 |           0.00 | 1987-07-17 |
+| James       | 2500.00 |           0.00 | 1987-07-18 |
+| TJ          | 2100.00 |           0.00 | 1987-07-19 |
+| Jason       | 3300.00 |           0.00 | 1987-07-20 |
+| Michael     | 2900.00 |           0.00 | 1987-07-21 |
+| Ki          | 2400.00 |           0.00 | 1987-07-22 |
+| Hazel       | 2200.00 |           0.00 | 1987-07-23 |
+| Renske      | 3600.00 |           0.00 | 1987-07-24 |
+| Stephen     | 3200.00 |           0.00 | 1987-07-25 |
+| John        | 2700.00 |           0.00 | 1987-07-26 |
+| Joshua      | 2500.00 |           0.00 | 1987-07-27 |
+| Trenna      | 3500.00 |           0.00 | 1987-07-28 |
+| Curtis      | 3100.00 |           0.00 | 1987-07-29 |
+| Randall     | 2600.00 |           0.00 | 1987-07-30 |
+| Peter       | 2500.00 |           0.00 | 1987-07-31 |
+| David       | 9500.00 |           0.25 | 1987-08-07 |
+| Peter       | 9000.00 |           0.25 | 1987-08-08 |
+| Christopher | 8000.00 |           0.20 | 1987-08-09 |
+| Nanette     | 7500.00 |           0.20 | 1987-08-10 |
+| Oliver      | 7000.00 |           0.15 | 1987-08-11 |
+| Patrick     | 9500.00 |           0.35 | 1987-08-13 |
+| Allan       | 9000.00 |           0.35 | 1987-08-14 |
+| Lindsey     | 8000.00 |           0.30 | 1987-08-15 |
+| Louise      | 7500.00 |           0.30 | 1987-08-16 |
+| Sarath      | 7000.00 |           0.25 | 1987-08-17 |
+| Danielle    | 9500.00 |           0.15 | 1987-08-19 |
+| Mattea      | 7200.00 |           0.10 | 1987-08-20 |
+| David       | 6800.00 |           0.10 | 1987-08-21 |
+| Sundar      | 6400.00 |           0.10 | 1987-08-22 |
+| Amit        | 6200.00 |           0.10 | 1987-08-23 |
+| Tayler      | 9600.00 |           0.20 | 1987-08-26 |
+| William     | 7400.00 |           0.15 | 1987-08-27 |
+| Elizabeth   | 7300.00 |           0.15 | 1987-08-28 |
+| Sundita     | 6100.00 |           0.10 | 1987-08-29 |
+| Alyssa      | 8800.00 |           0.25 | 1987-08-31 |
+| Jonathon    | 8600.00 |           0.20 | 1987-09-01 |
+| Jack        | 8400.00 |           0.20 | 1987-09-02 |
+| Kimberely   | 7000.00 |           0.15 | 1987-09-03 |
+| Charles     | 6200.00 |           0.10 | 1987-09-04 |
+| Winston     | 3200.00 |           0.00 | 1987-09-05 |
+| Jean        | 3100.00 |           0.00 | 1987-09-06 |
+| Martha      | 2500.00 |           0.00 | 1987-09-07 |
+| Girard      | 2800.00 |           0.00 | 1987-09-08 |
+| Nandita     | 4200.00 |           0.00 | 1987-09-09 |
+| Alexis      | 4100.00 |           0.00 | 1987-09-10 |
+| Julia       | 3400.00 |           0.00 | 1987-09-11 |
+| Anthony     | 3000.00 |           0.00 | 1987-09-12 |
+| Kelly       | 3800.00 |           0.00 | 1987-09-13 |
+| Jennifer    | 3600.00 |           0.00 | 1987-09-14 |
+| Timothy     | 2900.00 |           0.00 | 1987-09-15 |
+| Randall     | 2500.00 |           0.00 | 1987-09-16 |
+| Sarah       | 4000.00 |           0.00 | 1987-09-17 |
+| Britney     | 3900.00 |           0.00 | 1987-09-18 |
+| Samuel      | 3200.00 |           0.00 | 1987-09-19 |
+| Vance       | 2800.00 |           0.00 | 1987-09-20 |
+| Alana       | 3100.00 |           0.00 | 1987-09-21 |
+| Kevin       | 3000.00 |           0.00 | 1987-09-22 |
+| Donald      | 2600.00 |           0.00 | 1987-09-23 |
+| Douglas     | 2600.00 |           0.00 | 1987-09-24 |
+| Jennifer    | 4400.00 |           0.00 | 1987-09-25 |
+| Pat         | 6000.00 |           0.00 | 1987-09-27 |
+| Susan       | 6500.00 |           0.00 | 1987-09-28 |
+| William     | 8300.00 |           0.00 | 1987-10-01 |
++-------------+---------+----------------+------------+
+88 rows in set (0.00 sec)
+
+--13. Display details of jobs in the descending order of the title.
+D4_56329> select * from jobs  ORDER BY job_title desc;
++------------+---------------------------------+------------+------------+
+| JOB_ID     | JOB_TITLE                       | MIN_SALARY | MAX_SALARY |
++------------+---------------------------------+------------+------------+
+| ST_MAN     | Stock Manager                   |       5500 |       8500 |
+| ST_CLERK   | Stock Clerk                     |       2000 |       5000 |
+| SH_CLERK   | Shipping Clerk                  |       2500 |       5500 |
+| SA_REP     | Sales Representative            |       6000 |      12000 |
+| SA_MAN     | Sales Manager                   |      10000 |      20000 |
+| PU_MAN     | Purchasing Manager              |       8000 |      15000 |
+| PU_CLERK   | Purchasing Clerk                |       2500 |       5500 |
+| PR_REP     | Public Relations Representative |       4500 |      10500 |
+| AC_ACCOUNT | Public Accountant               |       4200 |       9000 |
+| IT_PROG    | Programmer                      |       4000 |      10000 |
+| AD_PRES    | President                       |      20000 |      40000 |
+| MK_REP     | Marketing Representative        |       4000 |       9000 |
+| MK_MAN     | Marketing Manager               |       9000 |      15000 |
+| HR_REP     | Human Resources Representative  |       4000 |       9000 |
+| FI_MGR     | Finance Manager                 |       8200 |      16000 |
+| AD_VP      | Administration Vice President   |      15000 |      30000 |
+| AD_ASST    | Administration Assistant        |       3000 |       6000 |
+| AC_MGR     | Accounting Manager              |       8200 |      16000 |
+| FI_ACCOUNT | Accountant                      |       4200 |       9000 |
++------------+---------------------------------+------------+------------+
+19 rows in set (0.00 sec)
+
+
+--14. Display details of the employees where commission percentage is null and salary in 
+--the range 5000 to 10000 and department is 30.
+D4_56329> select * from employees WHERE commission_pct='null' AND salary BETWEEN 5000 AND 10000 AND DEPARTMENT_ID=30;
+Empty set, 1 warning (0.00 sec)
+
+
+--15. Display employees first_name,email who are working in “Executive” department.
+D4_56329> select first_name, email from employees WHERE job_id='executive';
+Empty set (0.00 sec)
+
+--16. Display unique contry_id from locations table.
+D4_56329> select distinct country_id from locations;
++------------+
+| country_id |
++------------+
+|            |
+| AU         |
+| BR         |
+| CA         |
+| CH         |
+| CN         |
+| DE         |
+| IN         |
+| IT         |
+| JP         |
+| NL         |
+| Ox         |
+| SG         |
+| UK         |
+| US         |
++------------+
+15 rows in set (0.00 sec)
+
+--17. Display all employees whose have job_id IT_PROG and FI_ACCOUNT.
+D4_56329> select * from employees WHERE job_id in('it_prog' , 'fi_account');
++-------------+-------------+-----------+----------+--------------+------------+------------+---------+----------------+------------+---------------+
+| EMPLOYEE_ID | FIRST_NAME  | LAST_NAME | EMAIL    | PHONE_NUMBER | HIRE_DATE  | JOB_ID     | SALARY  | COMMISSION_PCT | MANAGER_ID | DEPARTMENT_ID |
++-------------+-------------+-----------+----------+--------------+------------+------------+---------+----------------+------------+---------------+
+|         109 | Daniel      | Faviet    | DFAVIET  | 515.124.4169 | 1987-06-26 | FI_ACCOUNT | 9000.00 |           0.00 |        108 |           100 |
+|         110 | John        | Chen      | JCHEN    | 515.124.4269 | 1987-06-27 | FI_ACCOUNT | 8200.00 |           0.00 |        108 |           100 |
+|         111 | Ismael      | Sciarra   | ISCIARRA | 515.124.4369 | 1987-06-28 | FI_ACCOUNT | 7700.00 |           0.00 |        108 |           100 |
+|         112 | Jose Manuel | Urman     | JMURMAN  | 515.124.4469 | 1987-06-29 | FI_ACCOUNT | 7800.00 |           0.00 |        108 |           100 |
+|         113 | Luis        | Popp      | LPOPP    | 515.124.4567 | 1987-06-30 | FI_ACCOUNT | 6900.00 |           0.00 |        108 |           100 |
+|         103 | Alexander   | Hunold    | AHUNOLD  | 590.423.4567 | 1987-06-20 | IT_PROG    | 9000.00 |           0.00 |        102 |            60 |
+|         104 | Bruce       | Ernst     | BERNST   | 590.423.4568 | 1987-06-21 | IT_PROG    | 6000.00 |           0.00 |        103 |            60 |
+|         105 | David       | Austin    | DAUSTIN  | 590.423.4569 | 1987-06-22 | IT_PROG    | 4800.00 |           0.00 |        103 |            60 |
+|         106 | Valli       | Pataballa | VPATABAL | 590.423.4560 | 1987-06-23 | IT_PROG    | 4800.00 |           0.00 |        103 |            60 |
+|         107 | Diana       | Lorentz   | DLORENTZ | 590.423.5567 | 1987-06-24 | IT_PROG    | 4200.00 |           0.00 |        103 |            60 |
++-------------+-------------+-----------+----------+--------------+------------+------------+---------+----------------+------------+---------------+
+10 rows in set (0.00 sec)
+
+--18. Display all countries in ascending order.
+D4_56329> select * from countries ORDER BY country_name asc;
++------------+--------------------------+-----------+
+| COUNTRY_ID | COUNTRY_NAME             | REGION_ID |
++------------+--------------------------+-----------+
+| AR         | Argentina                |         2 |
+| AU         | Australia                |         3 |
+| BE         | Belgium                  |         1 |
+| BR         | Brazil                   |         2 |
+| CA         | Canada                   |         2 |
+| CN         | China                    |         3 |
+| DK         | Denmark                  |         1 |
+| EG         | Egypt                    |         4 |
+| FR         | France                   |         1 |
+| DE         | Germany                  |         1 |
+| HK         | HongKong                 |         3 |
+| IN         | India                    |         3 |
+| IL         | Israel                   |         4 |
+| IT         | Italy                    |         1 |
+| JP         | Japan                    |         3 |
+| KW         | Kuwait                   |         4 |
+| MX         | Mexico                   |         2 |
+| NL         | Netherlands              |         1 |
+| NG         | Nigeria                  |         4 |
+| SG         | Singapore                |         3 |
+| CH         | Switzerland              |         1 |
+| UK         | United Kingdom           |         1 |
+| US         | United States of America |         2 |
+| ZM         | Zambia                   |         4 |
+| ZW         | Zimbabwe                 |         4 |
++------------+--------------------------+-----------+
+25 rows in set (0.00 sec)
+
+--19. Display employees where first name or last name start with S.
+D4_56329> select * from employees WHERE  first_name LIKE 's%' OR last_name LIKE 'S%';
++-------------+------------+-----------+----------+--------------------+------------+------------+----------+----------------+------------+---------------+
+| EMPLOYEE_ID | FIRST_NAME | LAST_NAME | EMAIL    | PHONE_NUMBER       | HIRE_DATE  | JOB_ID     | SALARY   | COMMISSION_PCT | MANAGER_ID | DEPARTMENT_ID |
++-------------+------------+-----------+----------+--------------------+------------+------------+----------+----------------+------------+---------------+
+|         100 | Steven     | King      | SKING    | 515.123.4567       | 1987-06-17 | AD_PRES    | 24000.00 |           0.00 |          0 |            90 |
+|         111 | Ismael     | Sciarra   | ISCIARRA | 515.124.4369       | 1987-06-28 | FI_ACCOUNT |  7700.00 |           0.00 |        108 |           100 |
+|         116 | Shelli     | Baida     | SBAIDA   | 515.127.4563       | 1987-07-03 | PU_CLERK   |  2900.00 |           0.00 |        114 |            30 |
+|         117 | Sigal      | Tobias    | STOBIAS  | 515.127.4564       | 1987-07-04 | PU_CLERK   |  2800.00 |           0.00 |        114 |            30 |
+|         123 | Shanta     | Vollman   | SVOLLMAN | 650.123.4234       | 1987-07-10 | ST_MAN     |  6500.00 |           0.00 |        100 |            50 |
+|         128 | Steven     | Markle    | SMARKLE  | 650.124.1434       | 1987-07-15 | ST_CLERK   |  2200.00 |           0.00 |        120 |            50 |
+|         138 | Stephen    | Stiles    | SSTILES  | 650.121.2034       | 1987-07-25 | ST_CLERK   |  3200.00 |           0.00 |        123 |            50 |
+|         139 | John       | Seo       | JSEO     | 650.121.2019       | 1987-07-26 | ST_CLERK   |  2700.00 |           0.00 |        123 |            50 |
+|         157 | Patrick    | Sully     | PSULLY   | 011.44.1345.929268 | 1987-08-13 | SA_REP     |  9500.00 |           0.35 |        146 |            80 |
+|         159 | Lindsey    | Smith     | LSMITH   | 011.44.1345.729268 | 1987-08-15 | SA_REP     |  8000.00 |           0.30 |        146 |            80 |
+|         161 | Sarath     | Sewall    | SSEWALL  | 011.44.1345.529268 | 1987-08-17 | SA_REP     |  7000.00 |           0.25 |        146 |            80 |
+|         166 | Sundar     | Ande      | SANDE    | 011.44.1346.629268 | 1987-08-22 | SA_REP     |  6400.00 |           0.10 |        147 |            80 |
+|         171 | William    | Smith     | WSMITH   | 011.44.1343.629268 | 1987-08-27 | SA_REP     |  7400.00 |           0.15 |        148 |            80 |
+|         173 | Sundita    | Kumar     | SKUMAR   | 011.44.1343.329268 | 1987-08-29 | SA_REP     |  6100.00 |           0.10 |        148 |            80 |
+|         182 | Martha     | Sullivan  | MSULLIVA | 650.507.9878       | 1987-09-07 | SH_CLERK   |  2500.00 |           0.00 |        120 |            50 |
+|         184 | Nandita    | Sarchand  | NSARCHAN | 650.509.1876       | 1987-09-09 | SH_CLERK   |  4200.00 |           0.00 |        121 |            50 |
+|         192 | Sarah      | Bell      | SBELL    | 650.501.1876       | 1987-09-17 | SH_CLERK   |  4000.00 |           0.00 |        123 |            50 |
+|         194 | Samuel     | McCain    | SMCCAIN  | 650.501.3876       | 1987-09-19 | SH_CLERK   |  3200.00 |           0.00 |        123 |            50 |
+|         203 | Susan      | Mavris    | SMAVRIS  | 515.123.7777       | 1987-09-28 | HR_REP     |  6500.00 |           0.00 |        101 |            40 |
+|         205 | Shelley    | Higgins   | SHIGGINS | 515.123.8080       | 1987-09-30 | AC_MGR     | 12000.00 |           0.00 |        101 |           110 |
++-------------+------------+-----------+----------+--------------------+------------+------------+----------+----------------+------------+---------------+
+20 rows in set (0.00 sec)
+
+--20. Display details of the employees where commission percentage is null and salary in 
+--the range 5000 to 10000 and department is 30.
+Empty set, 1 warning (0.00 sec)
+
+--21. Display all employees who have job_id IT_PROG and FI_ACCOUNT. 
+D4_56329> select * from employees WHERE job_id in('it_prog' , 'fi_account');
++-------------+-------------+-----------+----------+--------------+------------+------------+---------+----------------+------------+---------------+
+| EMPLOYEE_ID | FIRST_NAME  | LAST_NAME | EMAIL    | PHONE_NUMBER | HIRE_DATE  | JOB_ID     | SALARY  | COMMISSION_PCT | MANAGER_ID | DEPARTMENT_ID |
++-------------+-------------+-----------+----------+--------------+------------+------------+---------+----------------+------------+---------------+
+|         109 | Daniel      | Faviet    | DFAVIET  | 515.124.4169 | 1987-06-26 | FI_ACCOUNT | 9000.00 |           0.00 |        108 |           100 |
+|         110 | John        | Chen      | JCHEN    | 515.124.4269 | 1987-06-27 | FI_ACCOUNT | 8200.00 |           0.00 |        108 |           100 |
+|         111 | Ismael      | Sciarra   | ISCIARRA | 515.124.4369 | 1987-06-28 | FI_ACCOUNT | 7700.00 |           0.00 |        108 |           100 |
+|         112 | Jose Manuel | Urman     | JMURMAN  | 515.124.4469 | 1987-06-29 | FI_ACCOUNT | 7800.00 |           0.00 |        108 |           100 |
+|         113 | Luis        | Popp      | LPOPP    | 515.124.4567 | 1987-06-30 | FI_ACCOUNT | 6900.00 |           0.00 |        108 |           100 |
+|         103 | Alexander   | Hunold    | AHUNOLD  | 590.423.4567 | 1987-06-20 | IT_PROG    | 9000.00 |           0.00 |        102 |            60 |
+|         104 | Bruce       | Ernst     | BERNST   | 590.423.4568 | 1987-06-21 | IT_PROG    | 6000.00 |           0.00 |        103 |            60 |
+|         105 | David       | Austin    | DAUSTIN  | 590.423.4569 | 1987-06-22 | IT_PROG    | 4800.00 |           0.00 |        103 |            60 |
+|         106 | Valli       | Pataballa | VPATABAL | 590.423.4560 | 1987-06-23 | IT_PROG    | 4800.00 |           0.00 |        103 |            60 |
+|         107 | Diana       | Lorentz   | DLORENTZ | 590.423.5567 | 1987-06-24 | IT_PROG    | 4200.00 |           0.00 |        103 |            60 |
++-------------+-------------+-----------+----------+--------------+------------+------------+---------+----------------+------------+---------------+
+10 rows in set (0.00 sec)
+
+--Note: To solve below queries use “spj” database
+--22. Display all the Part names with weight between 12 and 14 (inclusive of both)
+D4_56329> select * from p where weight BETWEEN 12 AND 14;
++------+-------+-------+--------+--------+
+| p#   | Pname | Color | Weight | City   |
++------+-------+-------+--------+--------+
+| p1   | nut   | red   |     12 | london |
+| p4   | screw | red   |     14 | london |
+| p5   | cam   | blue  |     12 | paris  |
++------+-------+-------+--------+--------+
+3 rows in set (0.02 sec)
+
+--23. Display all the Suppliers except the supplier from London.
+D4_56329> select * from s WHERE city  !='london';
++------+-------+--------+--------+
+| S#   | Sname | Status | City   |
++------+-------+--------+--------+
+| s2   | Jones |     10 | Paris  |
+| s3   | Blake |     30 | Paris  |
+| s5   | Adams |     30 | Athens |
++------+-------+--------+--------+
+3 rows in set (0.01 sec)
+
+--24. Display all the suppliers with a status between 10 and 20.
+D4_56329> select * from s WHERE status BETWEEN 10 AND 20;
++------+-------+--------+--------+
+| S#   | Sname | Status | City   |
++------+-------+--------+--------+
+| s1   | Smith |     20 | London |
+| s2   | Jones |     10 | Paris  |
+| s4   | Clark |     20 | London |
++------+-------+--------+--------+
+3 rows in set (0.00 sec)
+
+--25. Display PNAME and COLOR from the P table for the city London.
+D4_56329> SELECT pname, color from p WHERE city = 'london';
++-------+-------+
+| pname | color |
++-------+-------+
+| nut   | red   |
+| screw | red   |
+| cog   | red   |
++-------+-------+
+3 rows in set (0.00 sec)
+
+--26. Display all the suppliers from London.
+D4_56329> select * from s WHERE city='london';
++------+-------+--------+--------+
+| S#   | Sname | Status | City   |
++------+-------+--------+--------+
+| s1   | Smith |     20 | London |
+| s4   | Clark |     20 | London |
++------+-------+--------+--------+
+2 rows in set (0.00 sec)
+
+--27. Display all suppliers from Paris or London.
+D4_56329> select * from s WHERE city in ('paris' , 'london');
++------+-------+--------+--------+
+| S#   | Sname | Status | City   |
++------+-------+--------+--------+
+| s1   | Smith |     20 | London |
+| s2   | Jones |     10 | Paris  |
+| s3   | Blake |     30 | Paris  |
+| s4   | Clark |     20 | London |
++------+-------+--------+--------+
+4 rows in set (0.00 sec)
+
+--28. Display all project in Athens.
+D4_56329> select * from j WHERE city= 'athens';
++------+---------+--------+
+| j#   | janme   | city   |
++------+---------+--------+
+| j3   | reader  | athens |
+| j4   | console | athens |
++------+---------+--------+
+2 rows in set (0.00 sec)
+
