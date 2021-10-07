@@ -1,0 +1,1230 @@
+SOLUTION 1:-
+
+
+C:\Users\user>mysql -u root -p
+Enter password: **********
+root>CREATE DATABASE classwork;
+Query OK, 1 row affected (0.01 sec)
+root>GRANT ALL PRIVILEGES ON classwork.* TO sunbeam@localhost;
+Query OK, 0 rows affected (0.04 sec)
+
+root>exit;
+Bye
+
+C:\Users\user>mysql -u d1_56474 -p
+Enter password: *******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 40
+Server version: 8.0.26 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+d1_56474>use classwork;
+Database changed
+d1_56474>SOURCE D:/CLASSWORK/dbt/day02/classwork-db.sql
+Query OK, 0 rows affected, 1 warning (0.01 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected, 1 warning (0.01 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected, 2 warnings (0.12 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 0 rows affected, 1 warning (0.05 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 0 rows affected, 3 warnings (0.05 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 0 rows affected (0.05 sec)
+
+Query OK, 0 rows affected (0.04 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 0 rows affected (0.04 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+SOLUTION 2:-
+
+C:\Users\user>
+C:\Users\user>mysql -u d1_56474 -p
+Enter password: *******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 42
+Server version: 8.0.26 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+root>CREATE DATABASE hr;
+Query OK, 1 row affected (0.01 sec)
+
+root>GRANT ALL PRIVILEGES ON hr.* TO sunbeam@localhost;
+Query OK, 0 rows affected (0.01 sec)
+
+root>exit
+Bye
+
+C:\Users\user>
+C:\Users\user>mysql -u d1_56474 -p
+Enter password: *******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 42
+Server version: 8.0.26 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+d1_56474>USE hr;
+Database changed
+d1_56474>SOURCE D:/CLASSWORK/dbt/db/hr-db.sql
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.07 sec)
+
+Query OK, 25 rows affected (0.01 sec)
+Records: 25  Duplicates: 0  Warnings: 0
+
+Query OK, 0 rows affected (0.02 sec)
+
+Query OK, 27 rows affected (0.01 sec)
+Records: 27  Duplicates: 0  Warnings: 0
+
+Query OK, 0 rows affected (0.02 sec)
+
+Query OK, 107 rows affected (0.04 sec)
+Records: 107  Duplicates: 0  Warnings: 0
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 11 rows affected (0.02 sec)
+Records: 11  Duplicates: 0  Warnings: 0
+
+Query OK, 0 rows affected (0.02 sec)
+
+Query OK, 19 rows affected (0.01 sec)
+Records: 19  Duplicates: 0  Warnings: 0
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 23 rows affected (0.01 sec)
+Records: 23  Duplicates: 0  Warnings: 0
+
+Query OK, 0 rows affected (0.04 sec)
+
+Query OK, 4 rows affected (0.01 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+Query OK, 0 rows affected (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+
+SOLUTION 3:-
+
+C:\Users\user>mysql -u root -p
+Enter password: **********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 44
+Server version: 8.0.26 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+root>CREATE DATABASE sales;
+Query OK, 1 row affected (0.01 sec)
+
+root>GRANT ALL PRIVILEGES ON sales.* TO sunbeam@localhost;
+Query OK, 0 rows affected (0.01 sec)
+
+root>exit
+Bye
+
+C:\Users\user>mysql -u d1_56474 -p
+Enter password: *******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 45
+Server version: 8.0.26 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+d1_56474>USE sales;
+Database changed
+d1_56474>SOURCE D:/CLASSWORK/dbt/db/sales-db.sql
+Query OK, 0 rows affected, 1 warning (0.06 sec)
+
+Query OK, 0 rows affected, 3 warnings (0.05 sec)
+
+Query OK, 0 rows affected, 3 warnings (0.05 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+
+SOLUTION 4:-
+
+C:\Users\user>mysql -u root -p
+Enter password:
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
+
+C:\Users\user>mysql -u root -p
+Enter password: **********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 47
+Server version: 8.0.26 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+root>CREATE DATABASE northwind;
+Query OK, 1 row affected (0.02 sec)
+
+root>GRANT ALL PRIVILEGES ON northwind.* TO sunbeam@localhost;
+Query OK, 0 rows affected (0.02 sec)
+
+root>exit
+Bye
+
+C:\Users\user>mysql -u d1_56474 -p
+Enter password: *******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 48
+Server version: 8.0.26 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+d1_56474>use northwind;
+Database changed
+C:\Users\user>mysql -u root -p
+Enter password:
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
+
+C:\Users\user>mysql -u root -p
+Enter password: **********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 47
+Server version: 8.0.26 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+root>CREATE DATABASE northwind;
+Query OK, 1 row affected (0.02 sec)
+
+root>GRANT ALL PRIVILEGES ON northwind.* TO sunbeam@localhost;
+Query OK, 0 rows affected (0.02 sec)
+
+root>exit
+Bye
+
+C:\Users\user>mysql -u d1_56474 -p
+Enter password: *******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 48
+Server version: 8.0.26 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+d1_56474>use northwind;
+Database changed
+C:\Users\user>mysql -u root -p
+Enter password:
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
+
+C:\Users\user>mysql -u root -p
+Enter password: **********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 47
+Server version: 8.0.26 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+root>CREATE DATABASE northwind;
+Query OK, 1 row affected (0.02 sec)
+
+root>GRANT ALL PRIVILEGES ON northwind.* TO sunbeam@localhost;
+Query OK, 0 rows affected (0.02 sec)
+
+root>exit
+Bye
+
+C:\Users\user>mysql -u d1_56474 -p
+Enter password: *******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 48
+Server version: 8.0.26 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+d1_56474>use northwind;
+Database changed
+C:\Users\user>mysql -u root -p
+Enter password:
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
+
+C:\Users\user>mysql -u root -p
+Enter password: **********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 47
+Server version: 8.0.26 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+root>CREATE DATABASE northwind;
+Query OK, 1 row affected (0.02 sec)
+
+root>GRANT ALL PRIVILEGES ON northwind.* TO sunbeam@localhost;
+Query OK, 0 rows affected (0.02 sec)
+
+root>exit
+Bye
+
+C:\Users\user>mysql -u d1_56474 -p
+Enter password: *******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 48
+Server version: 8.0.26 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+d1_56474>use northwind;
+Database changed
+d1_56474>SOURCE D:/CLASSWORK/dbt/db/northwind-db.sql
+Query OK, 0 rows affected (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected, 1 warning (0.16 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 0 rows affected (0.08 sec)
+
+Query OK, 0 rows affected (0.04 sec)
+
+Query OK, 0 rows affected (0.08 sec)
+
+Query OK, 93 rows affected (0.01 sec)
+Records: 93  Duplicates: 0  Warnings: 0
+
+Query OK, 0 rows affected, 2 warnings (0.08 sec)
+
+Query OK, 9 rows affected (0.01 sec)
+Records: 9  Duplicates: 0  Warnings: 0
+
+Query OK, 0 rows affected, 1 warning (0.11 sec)
+
+Query OK, 49 rows affected (0.01 sec)
+Records: 49  Duplicates: 0  Warnings: 0
+
+Query OK, 0 rows affected, 4 warnings (0.09 sec)
+
+Query OK, 1745 rows affected (0.08 sec)
+Records: 1745  Duplicates: 0  Warnings: 0
+
+Query OK, 410 rows affected (0.02 sec)
+Records: 410  Duplicates: 0  Warnings: 0
+
+Query OK, 0 rows affected, 3 warnings (0.09 sec)
+
+Query OK, 270 rows affected (0.03 sec)
+Records: 270  Duplicates: 0  Warnings: 0
+
+Query OK, 273 rows affected (0.04 sec)
+Records: 273  Duplicates: 0  Warnings: 0
+
+Query OK, 272 rows affected (0.03 sec)
+Records: 272  Duplicates: 0  Warnings: 0
+
+Query OK, 15 rows affected (0.01 sec)
+Records: 15  Duplicates: 0  Warnings: 0
+
+Query OK, 0 rows affected, 6 warnings (0.08 sec)
+
+Query OK, 77 rows affected (0.01 sec)
+Records: 77  Duplicates: 0  Warnings: 0
+
+Query OK, 0 rows affected, 1 warning (0.04 sec)
+
+Query OK, 4 rows affected (0.01 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+Query OK, 0 rows affected, 1 warning (0.04 sec)
+
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+Query OK, 0 rows affected, 1 warning (0.07 sec)
+
+Query OK, 29 rows affected (0.01 sec)
+Records: 29  Duplicates: 0  Warnings: 0
+
+Query OK, 0 rows affected, 1 warning (0.06 sec)
+
+Query OK, 53 rows affected (0.01 sec)
+Records: 53  Duplicates: 0  Warnings: 0
+
+Query OK, 0 rows affected (0.21 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+Query OK, 9 rows affected (0.14 sec)
+Records: 9  Duplicates: 0  Warnings: 0
+
+Query OK, 49 rows affected (0.11 sec)
+Records: 49  Duplicates: 0  Warnings: 0
+
+Query OK, 2155 rows affected (0.15 sec)
+Records: 2155  Duplicates: 0  Warnings: 0
+
+Query OK, 830 rows affected (0.19 sec)
+Records: 830  Duplicates: 0  Warnings: 0
+
+Query OK, 77 rows affected (0.14 sec)
+Records: 77  Duplicates: 0  Warnings: 0
+
+Query OK, 53 rows affected (0.13 sec)
+Records: 53  Duplicates: 0  Warnings: 0
+
+Query OK, 0 rows affected (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+
+SOLUTION 5 :-
+
+
+d1_56474>use classwork;
+Database changed
+d1_56474>SHOW TABLES;
++---------------------+
+| Tables_in_classwork |
++---------------------+
+| bonus               |
+| books               |
+| dept                |
+| dummy               |
+| emp                 |
+| salgrade            |
++---------------------+
+6 rows in set (0.06 sec)
+
+d1_56474>SELECT * FROM bonus;
+Empty set (0.04 sec)
+
+d1_56474>SELECT * FROM books;
++------+---------------------------------+-------------------+-------------------+---------+
+| id   | name                            | author            | subject           | price   |
++------+---------------------------------+-------------------+-------------------+---------+
+| 1001 | Exploring C                     | Yashwant Kanetkar | C Programming     | 123.456 |
+| 1002 | Pointers in C                   | Yashwant Kanetkar | C Programming     | 371.019 |
+| 1003 | ANSI C Programming              | E Balaguruswami   | C Programming     | 334.215 |
+| 1004 | ANSI C Programming              | Dennis Ritchie    | C Programming     | 140.121 |
+| 2001 | C++ Complete Reference          | Herbert Schildt   | C++ Programming   | 417.764 |
+| 2002 | C++ Primer                      | Stanley Lippman   | C++ Programming   | 620.665 |
+| 2003 | C++ Programming Language        | Bjarne Stroustrup | C++ Programming   | 987.213 |
+| 3001 | Java Complete Reference         | Herbert Schildt   | Java Programming  | 525.121 |
+| 3002 | Core Java Volume I              | Cay Horstmann     | Java Programming  | 575.651 |
+| 3003 | Java Programming Language       | James Gosling     | Java Programming  | 458.238 |
+| 4001 | Operating System Concepts       | Peter Galvin      | Operating Systems | 567.391 |
+| 4002 | Design of UNIX Operating System | Mauris J Bach     | Operating Systems | 421.938 |
+| 4003 | UNIX Internals                  | Uresh Vahalia     | Operating Systems | 352.822 |
++------+---------------------------------+-------------------+-------------------+---------+
+13 rows in set (0.00 sec)
+
+d1_56474>SELECT * FROM dept;
++--------+------------+----------+
+| deptno | dname      | loc      |
++--------+------------+----------+
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
++--------+------------+----------+
+4 rows in set (0.00 sec)
+
+d1_56474>SELECT * FROM dummy;
++-------+
+| dummy |
++-------+
+|     0 |
++-------+
+1 row in set (0.00 sec)
+
+d1_56474>SELECT * FROM emp;
++-------+--------+-----------+------+------------+---------+---------+--------+
+| empno | ename  | job       | mgr  | hire       | sal     | comm    | deptno |
++-------+--------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  800.00 |    NULL |     20 |
+|  7499 | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1600.00 |  300.00 |     30 |
+|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1250.00 |  500.00 |     30 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-04-02 | 2975.00 |    NULL |     20 |
+|  7654 | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1250.00 | 1400.00 |     30 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 2850.00 |    NULL |     30 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450.00 |    NULL |     10 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3000.00 |    NULL |     20 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5000.00 |    NULL |     10 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1500.00 |    0.00 |     30 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1100.00 |    NULL |     20 |
+|  7900 | JAMES  | CLERK     | 7698 | 1981-12-03 |  950.00 |    NULL |     30 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000.00 |    NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1300.00 |    NULL |     10 |
++-------+--------+-----------+------+------------+---------+---------+--------+
+14 rows in set (0.01 sec)
+
+d1_56474>SELECT * FROM salgrade;
++-------+-------+-------+
+| grade | losal | hisal |
++-------+-------+-------+
+|     1 |   700 |  1200 |
+|     2 |  1201 |  1400 |
+|     3 |  1401 |  2000 |
+|     4 |  2001 |  3000 |
+|     5 |  3001 |  9999 |
++-------+-------+-------+
+5 rows in set (0.00 sec)
+
+
+SOLUTION 6 :-
+
+
+d1_56474>USE sales;
+Database changed
+d1_56474>SHOW TABLES;
++-----------------+
+| Tables_in_sales |
++-----------------+
+| customers       |
+| orders          |
+| salespeople     |
++-----------------+
+3 rows in set (0.00 sec)
+
+d1_56474>SELECT * FROM customers;
++------+----------+----------+--------+------+
+| cnum | cname    | city     | rating | snum |
++------+----------+----------+--------+------+
+| 2001 | Hoffman  | London   |    100 | 1001 |
+| 2002 | Giovanni | Rome     |    200 | 1003 |
+| 2003 | Liu      | San Jose |    200 | 1002 |
+| 2004 | Grass    | Berlin   |    300 | 1002 |
+| 2006 | Clemens  | London   |    100 | 1001 |
+| 2008 | Cisneros | San Jose |    300 | 1007 |
+| 2007 | Pereira  | Rome     |    100 | 1004 |
++------+----------+----------+--------+------+
+7 rows in set (0.00 sec)
+
+d1_56474>SELECT * FROM orders;
++------+---------+------------+------+------+
+| onum | amt     | odate      | cnum | snum |
++------+---------+------------+------+------+
+| 3001 |   18.69 | 1990-10-03 | 2008 | 1007 |
+| 3003 |  767.19 | 1990-10-03 | 2001 | 1001 |
+| 3002 | 1900.10 | 1990-10-03 | 2007 | 1004 |
+| 3005 | 5160.45 | 1990-10-03 | 2003 | 1002 |
+| 3006 | 1098.16 | 1990-10-03 | 2008 | 1007 |
+| 3009 | 1713.23 | 1990-10-04 | 2002 | 1003 |
+| 3007 |   75.75 | 1990-10-04 | 2004 | 1002 |
+| 3008 | 4723.00 | 1990-10-04 | 2006 | 1001 |
+| 3010 |  309.95 | 1990-10-04 | 2004 | 1002 |
+| 3011 | 9891.88 | 1990-10-04 | 2006 | 1001 |
++------+---------+------------+------+------+
+10 rows in set (0.00 sec)
+
+d1_56474>SELECT * FROM salespeople;
++------+---------+-----------+------+
+| snum | sname   | city      | comm |
++------+---------+-----------+------+
+| 1001 | Peel    | London    | 0.12 |
+| 1002 | Serres  | San Jose  | 0.13 |
+| 1004 | Motika  | London    | 0.11 |
+| 1007 | Rifkin  | Barcelona | 0.15 |
+| 1003 | Axelrod | New York  | 0.10 |
++------+---------+-----------+------+
+5 rows in set (0.00 sec)
+
+SOLUTION 7 :-
+
+
+d1_56474>exit
+Bye
+
+C:\Users\user>
+C:\Users\user>mysql -u d1_56474 -p
+Enter password: *******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 49
+Server version: 8.0.26 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+d1_56474>use sales;
+Database changed
+d1_56474>SHOW TABLES;
++-----------------+
+| Tables_in_sales |
++-----------------+
+| customers       |
+| orders          |
+| salespeople     |
++-----------------+
+3 rows in set (0.01 sec)
+
+d1_56474>SELECT * FROM orders;
++------+---------+------------+------+------+
+| onum | amt     | odate      | cnum | snum |
++------+---------+------------+------+------+
+| 3001 |   18.69 | 1990-10-03 | 2008 | 1007 |
+| 3003 |  767.19 | 1990-10-03 | 2001 | 1001 |
+| 3002 | 1900.10 | 1990-10-03 | 2007 | 1004 |
+| 3005 | 5160.45 | 1990-10-03 | 2003 | 1002 |
+| 3006 | 1098.16 | 1990-10-03 | 2008 | 1007 |
+| 3009 | 1713.23 | 1990-10-04 | 2002 | 1003 |
+| 3007 |   75.75 | 1990-10-04 | 2004 | 1002 |
+| 3008 | 4723.00 | 1990-10-04 | 2006 | 1001 |
+| 3010 |  309.95 | 1990-10-04 | 2004 | 1002 |
+| 3011 | 9891.88 | 1990-10-04 | 2006 | 1001 |
++------+---------+------------+------+------+
+10 rows in set (0.00 sec)
+
+d1_56474>SELECT * FROM customers;
++------+----------+----------+--------+------+
+| cnum | cname    | city     | rating | snum |
++------+----------+----------+--------+------+
+| 2001 | Hoffman  | London   |    100 | 1001 |
+| 2002 | Giovanni | Rome     |    200 | 1003 |
+| 2003 | Liu      | San Jose |    200 | 1002 |
+| 2004 | Grass    | Berlin   |    300 | 1002 |
+| 2006 | Clemens  | London   |    100 | 1001 |
+| 2008 | Cisneros | San Jose |    300 | 1007 |
+| 2007 | Pereira  | Rome     |    100 | 1004 |
++------+----------+----------+--------+------+
+7 rows in set (0.00 sec)
+
+d1_56474>
+d1_56474>SELECT * FROM salespeople;
++------+---------+-----------+------+
+| snum | sname   | city      | comm |
++------+---------+-----------+------+
+| 1001 | Peel    | London    | 0.12 |
+| 1002 | Serres  | San Jose  | 0.13 |
+| 1004 | Motika  | London    | 0.11 |
+| 1007 | Rifkin  | Barcelona | 0.15 |
+| 1003 | Axelrod | New York  | 0.10 |
++------+---------+-----------+------+
+5 rows in set (0.00 sec)
+
+d1_56474>
+d1_56474>SELECT odate FROM orders ORDER BY amount DESC LIMIT 1;
+ERROR 1054 (42S22): Unknown column 'amount' in 'order clause'
+d1_56474>SELECT odate FROM orders ORDER BY amt DESC LIMIT 1;
++------------+
+| odate      |
++------------+
+| 1990-10-04 |
++------------+
+1 row in set (0.00 sec)
+
+e. 3001
+f. peel Serres
+g. Berlin
+h. London
+i. Customer is Clemens and salesman is Peel
+
+SLOUTION 8 :-
+
+Relationship Studied
+
+SOLUTION 9 :-
+
+
+d1_56474>SELECT onum, amt, odate FROM orders;
++------+---------+------------+
+| onum | amt     | odate      |
++------+---------+------------+
+| 3001 |   18.69 | 1990-10-03 |
+| 3003 |  767.19 | 1990-10-03 |
+| 3002 | 1900.10 | 1990-10-03 |
+| 3005 | 5160.45 | 1990-10-03 |
+| 3006 | 1098.16 | 1990-10-03 |
+| 3009 | 1713.23 | 1990-10-04 |
+| 3007 |   75.75 | 1990-10-04 |
+| 3008 | 4723.00 | 1990-10-04 |
+| 3010 |  309.95 | 1990-10-04 |
+| 3011 | 9891.88 | 1990-10-04 |
++------+---------+------------+
+10 rows in set (0.00 sec)
+
+
+SOLUTION 10 :-
+
+d1_56474>SELECT city, sname, snum, comm FROM salespeople;
++-----------+---------+------+------+
+| city      | sname   | snum | comm |
++-----------+---------+------+------+
+| London    | Peel    | 1001 | 0.12 |
+| San Jose  | Serres  | 1002 | 0.13 |
+| London    | Motika  | 1004 | 0.11 |
+| Barcelona | Rifkin  | 1007 | 0.15 |
+| New York  | Axelrod | 1003 | 0.10 |
++-----------+---------+------+------+
+5 rows in set (0.00 sec)
+
+
+SOLUTION 11 :-
+
+d1_56474>SELECT * FROM customers WHERE snum = 1001;
++------+---------+--------+--------+------+
+| cnum | cname   | city   | rating | snum |
++------+---------+--------+--------+------+
+| 2001 | Hoffman | London |    100 | 1001 |
+| 2006 | Clemens | London |    100 | 1001 |
++------+---------+--------+--------+------+
+2 rows in set (0.00 sec)
+
+
+SOLUTION 12 :-
+
+d1_56474>SELECT rating, cname FROM customers WHERE city = 'San Jose';
++--------+----------+
+| rating | cname    |
++--------+----------+
+|    200 | Liu      |
+|    300 | Cisneros |
++--------+----------+
+2 rows in set (0.00 sec)
+
+
+SOLUTION 13 :-
+
+d1_56474>SELECT DISTINCT snum FROM orders;
++------+
+| snum |
++------+
+| 1007 |
+| 1001 |
+| 1004 |
+| 1002 |
+| 1003 |
++------+
+5 rows in set (0.01 sec)
+
+
+SOLUTION 14 :-
+
+
+d1_56474>SELECT * FROM orders WHERE amt > 1000;
++------+---------+------------+------+------+
+| onum | amt     | odate      | cnum | snum |
++------+---------+------------+------+------+
+| 3002 | 1900.10 | 1990-10-03 | 2007 | 1004 |
+| 3005 | 5160.45 | 1990-10-03 | 2003 | 1002 |
+| 3006 | 1098.16 | 1990-10-03 | 2008 | 1007 |
+| 3009 | 1713.23 | 1990-10-04 | 2002 | 1003 |
+| 3008 | 4723.00 | 1990-10-04 | 2006 | 1001 |
+| 3011 | 9891.88 | 1990-10-04 | 2006 | 1001 |
++------+---------+------------+------+------+
+6 rows in set (0.00 sec)
+
+
+SOLUTION 15 :-
+
+d1_56474>SELECT sname, city FROM salespeople WHERE city = 'London' AND comm > 0.10;
++--------+--------+
+| sname  | city   |
++--------+--------+
+| Peel   | London |
+| Motika | London |
++--------+--------+
+2 rows in set (0.00 sec)
+
+
+SOLUTION 16 :-
+
+d1_56474>SELECT * FROM customers WHERE NOT rating <= 100 OR city = 'Rome';
++------+----------+----------+--------+------+
+| cnum | cname    | city     | rating | snum |
++------+----------+----------+--------+------+
+| 2002 | Giovanni | Rome     |    200 | 1003 |
+| 2003 | Liu      | San Jose |    200 | 1002 |
+| 2004 | Grass    | Berlin   |    300 | 1002 |
+| 2008 | Cisneros | San Jose |    300 | 1007 |
+| 2007 | Pereira  | Rome     |    100 | 1004 |
++------+----------+----------+--------+------+
+5 rows in set (0.00 sec)
+
+
+SOLUTION 17 :-
+
+
+d1_56474>SELECT * FROM orders WHERE NOT amt = 0 OR amt IS NULL;
++------+---------+------------+------+------+
+| onum | amt     | odate      | cnum | snum |
++------+---------+------------+------+------+
+| 3001 |   18.69 | 1990-10-03 | 2008 | 1007 |
+| 3003 |  767.19 | 1990-10-03 | 2001 | 1001 |
+| 3002 | 1900.10 | 1990-10-03 | 2007 | 1004 |
+| 3005 | 5160.45 | 1990-10-03 | 2003 | 1002 |
+| 3006 | 1098.16 | 1990-10-03 | 2008 | 1007 |
+| 3009 | 1713.23 | 1990-10-04 | 2002 | 1003 |
+| 3007 |   75.75 | 1990-10-04 | 2004 | 1002 |
+| 3008 | 4723.00 | 1990-10-04 | 2006 | 1001 |
+| 3010 |  309.95 | 1990-10-04 | 2004 | 1002 |
+| 3011 | 9891.88 | 1990-10-04 | 2006 | 1001 |
++------+---------+------------+------+------+
+10 rows in set (0.00 sec)
+
+
+SOLUTION 18 :-
+
+d1_56474>SELECT * FROM s;
++------+-------+--------+--------+
+| S#   | Sname | Status | City   |
++------+-------+--------+--------+
+| S1   | Smith |     20 | London |
+| S2   | Jones |     10 | Paris  |
+| S3   | Blake |     30 | Paris  |
+| S4   | Clark |     20 | London |
+| S5   | Adams |     30 | Athens |
++------+-------+--------+--------+
+5 rows in set (0.01 sec)
+
+
+
+SOLUTION 19 :-
+
+d1_56474>SELECT `s#`, Sname FROM s;
++------+-------+
+| s#   | Sname |
++------+-------+
+| S1   | Smith |
+| S2   | Jones |
+| S3   | Blake |
+| S4   | Clark |
+| S5   | Adams |
++------+-------+
+5 rows in set (0.00 sec)
+
+
+SOLUTION 20(INCORRECT) :-
+
+
+d1_56474>SELECT Weight, Weight MILIGRAMS, Weight KILOGRAMS FROM p ORDER BY MILIGRAMS, KILOGRAMS;
++--------+-----------+-----------+
+| Weight | MILIGRAMS | KILOGRAMS |
++--------+-----------+-----------+
+|     12 |        12 |        12 |
+|     12 |        12 |        12 |
+|     14 |        14 |        14 |
+|     17 |        17 |        17 |
+|     17 |        17 |        17 |
+|     19 |        19 |        19 |
++--------+-----------+-----------+
+6 rows in set (0.00 sec)
+
+
+SOLUTION 20(CORRECTED) :-
+
+d1_56474>SELECT Weight, Weight*1000 MILIGRAMS, Weight/1000 KILOGRAMS FROM p ORDER BY MILIGRAMS, KILOGRAMS;
++--------+-----------+-----------+
+| Weight | MILIGRAMS | KILOGRAMS |
++--------+-----------+-----------+
+|     12 |     12000 |    0.0120 |
+|     12 |     12000 |    0.0120 |
+|     14 |     14000 |    0.0140 |
+|     17 |     17000 |    0.0170 |
+|     17 |     17000 |    0.0170 |
+|     19 |     19000 |    0.0190 |
++--------+-----------+-----------+
+
+
+SOLUTION 21 :-
+
+d1_56474>SELECT Pname, Color FROM p WHERE city = 'London';
++-------+-------+
+| Pname | Color |
++-------+-------+
+| Nut   | Red   |
+| Screw | Red   |
+| Cog   | Red   |
++-------+-------+
+3 rows in set (0.00 sec)
+
+
+SOLUTION 22 :-
+
+
+d1_56474>SELECT Sname FROM s WHERE city = 'London';
++-------+
+| Sname |
++-------+
+| Smith |
+| Clark |
++-------+
+2 rows in set (0.00 sec)
+
+
+SOLUTION 23 :-
+
+d1_56474>SELECT Sname FROM s WHERE city = 'Paris' OR city = 'Athens';
++-------+
+| Sname |
++-------+
+| Jones |
+| Blake |
+| Adams |
++-------+
+3 rows in set (0.00 sec)
+
+
+SOLUTION 24 :-
+
+d1_56474>SELECT * FROM j WHERE city = 'Athens';
++------+---------+--------+
+| J#   | Jname   | City   |
++------+---------+--------+
+| J3   | Reader  | Athens |
+| J4   | Console | Athens |
++------+---------+--------+
+2 rows in set (0.00 sec)
+
+
+
+SOLUTION 25 :-
+
+d1_56474>SELECT Pname FROM p WHERE weight >= 12 AND weight <= 14;
++-------+
+| Pname |
++-------+
+| Nut   |
+| Screw |
+| Cam   |
++-------+
+3 rows in set (0.00 sec)
+
+
+SOLUTION 26 :-
+
+
+d1_56474>SELECT Sname FROM s WHERE Status >= 20;
++-------+
+| Sname |
++-------+
+| Smith |
+| Blake |
+| Clark |
+| Adams |
++-------+
+4 rows in set (0.00 sec)
+
+
+SOLUTION 27 :- 
+
+d1_56474>SELECT Sname FROM s WHERE NOT city = 'London';
++-------+
+| Sname |
++-------+
+| Jones |
+| Blake |
+| Adams |
++-------+
+3 rows in set (0.00 sec)
+
+
+SOLUTION 28 :-
+
+d1_56474>SELECT city FROM s;
++--------+
+| city   |
++--------+
+| London |
+| Paris  |
+| Paris  |
+| London |
+| Athens |
++--------+
+5 rows in set (0.00 sec)
+
+
+SOLUTION 29 :-
+
+d1_56474>SELECT * FROM s ORDER BY city DESC;
++------+-------+--------+--------+
+| S#   | Sname | Status | City   |
++------+-------+--------+--------+
+| S2   | Jones |     10 | Paris  |
+| S3   | Blake |     30 | Paris  |
+| S1   | Smith |     20 | London |
+| S4   | Clark |     20 | London |
+| S5   | Adams |     30 | Athens |
++------+-------+--------+--------+
+5 rows in set (0.00 sec)
+
+
+SOLUTION 30 :-
+
+d1_56474>SELECT * FROM p ORDER BY city, Pname;
++------+-------+-------+--------+--------+
+| P#   | Pname | Color | Weight | CITY   |
++------+-------+-------+--------+--------+
+| P6   | Cog   | Red   |     19 | London |
+| P1   | Nut   | Red   |     12 | London |
+| P4   | Screw | Red   |     14 | London |
+| P2   | Bolt  | Green |     17 | Paris  |
+| P5   | Cam   | Blue  |     12 | Paris  |
+| P3   | Screw | Blue  |     17 | Rome   |
++------+-------+-------+--------+--------+
+6 rows in set (0.00 sec)
+
+
+SOLUTION 31 :-
+
+d1_56474>SELECT Sname FROM s WHERE status>10 AND Status <20;
+Empty set (0.00 sec)
+
+
+SOLUTION 32 :-
+
+d1_56474>SELECT Pname, weight FROM p WHERE NOT (weight>=10 AND weight<=15);
++-------+--------+
+| Pname | weight |
++-------+--------+
+| Bolt  |     17 |
+| Screw |     17 |
+| Cog   |     19 |
++-------+--------+
+3 rows in set (0.00 sec)
+
+
+
+
+
