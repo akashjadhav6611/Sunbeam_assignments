@@ -62,20 +62,14 @@ D3_56588>SELECT AVG(comm) FROM salespeople;
 
 4. Extract cnum, cname and city from customer table if and only if one or more of the customers in the table are located in San Jose. 
 
-D3_56588>SELECT cnum, cname, city FROM customers WHERE (SELECT COUNT(CITY) FROM customers WHERE city='San Jose') >= 1;
+D3_56588>SELECT cnum, cname, city FROM customers WHERE city='San Jose';
 +------+----------+----------+
 | cnum | cname    | city     |
 +------+----------+----------+
-| 2001 | Hoffman  | London   |
-| 2002 | Giovanni | Rome     |
 | 2003 | Liu      | San Jose |
-| 2004 | Grass    | Berlin   |
-| 2006 | Clemens  | London   |
 | 2008 | Cisneros | San Jose |
-| 2007 | Pereira  | Rome     |
 +------+----------+----------+
-7 rows in set (0.00 sec)
-
+2 rows in set (0.00 sec)
 
 
 
