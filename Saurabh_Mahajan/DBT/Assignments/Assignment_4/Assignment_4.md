@@ -653,16 +653,13 @@ D3_56588>SELECT YEAR(HIRE_DATE), COUNT(EMPLOYEE_ID) FROM employees GROUP BY YEAR
 
 12. Display departments in which more than five employees have commission percentage. 
 
-D3_56588>SELECT department_id FROM employees WHERE commission_pct IS NOT NULL GROUP BY department_id HAVING COUNT(COMMISSION_PCT)>5;
+D3_56588>SELECT department_id FROM employees WHERE commission_pct != NULL GROUP BY department_id HAVING COUNT(COMMISSION_PCT)>5;
 +---------------+
 | department_id |
 +---------------+
-|            30 |
-|            50 |
 |            80 |
-|           100 |
 +---------------+
-4 rows in set (0.00 sec)
+1 rows in set (0.00 sec)
 
 
 
