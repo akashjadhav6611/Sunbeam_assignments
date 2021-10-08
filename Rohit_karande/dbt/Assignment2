@@ -1,0 +1,321 @@
+GRANT ALL PRIVILEGES ON sales.* TO D4_56329@localhost;
+source D:/CDAC_SUNBEAM/All_modules/dbt/db/sales-db.sql
+
+
+
+assignment 2
+
+Q9 :D4_56329> select onum,amt,odate from orders;
++------+---------+------------+
+| onum | amt     | odate      |
++------+---------+------------+
+| 3001 |   18.69 | 1990-10-03 |
+| 3003 |  767.19 | 1990-10-03 |
+| 3002 | 1900.10 | 1990-10-03 |
+| 3005 | 5160.45 | 1990-10-03 |
+| 3006 | 1098.16 | 1990-10-03 |
+| 3009 | 1713.23 | 1990-10-04 |
+| 3007 |   75.75 | 1990-10-04 |
+| 3008 | 4723.00 | 1990-10-04 |
+| 3010 |  309.95 | 1990-10-04 |
+| 3011 | 9891.88 | 1990-10-04 |
++------+---------+------------+
+10 rows in set (0.00 sec)
+
+Q10:D4_56329> select city,sname,snum,comm from salespeople;
++-----------+---------+------+------+
+| city      | sname   | snum | comm |
++-----------+---------+------+------+
+| London    | Peel    | 1001 | 0.12 |
+| San Jose  | Serres  | 1002 | 0.13 |
+| London    | Motika  | 1004 | 0.11 |
+| Barcelona | Rifkin  | 1007 | 0.15 |
+| New York  | Axelrod | 1003 | 0.10 |
++-----------+---------+------+------+
+5 rows in set (0.00 sec) 
+
+
+Q11: D4_56329> select * from salespeople where snum = 1001;
++------+-------+--------+------+
+| snum | sname | city   | comm |
++------+-------+--------+------+
+| 1001 | Peel  | London | 0.12 |
++------+-------+--------+------+
+1 row in set (0.00 sec)
+
+
+-->12.Write a select command that produces the rating followed by the name of each 
+-->customer in San Jose
+D4_56329> select cname,city,rating from customers where city='san jose';
++----------+----------+--------+
+| cname    | city     | rating |
++----------+----------+--------+
+| Liu      | San Jose |    200 |
+| Cisneros | San Jose |    300 |
++----------+----------+--------+
+2 rows in set (0.00 sec)
+
+
+-->13.Write a query that will produce the snum values of all salespeople from the Orders 
+-->table (with the duplicate values suppressed).
+D4_56329> select distinct snum from orders;
++------+
+| snum |
++------+
+| 1007 |
+| 1001 |
+| 1004 |
+| 1002 |
+| 1003 |
++------+
+5 rows in set (0.01 sec)
+
+-->14.Write a query that will give you all orders for more than Rs. 1,000.
+D4_56329> select * from orders where amt>1000;
++------+---------+------------+------+------+
+| onum | amt     | odate      | cnum | snum |
++------+---------+------------+------+------+
+| 3002 | 1900.10 | 1990-10-03 | 2007 | 1004 |
+| 3005 | 5160.45 | 1990-10-03 | 2003 | 1002 |
+| 3006 | 1098.16 | 1990-10-03 | 2008 | 1007 |
+| 3009 | 1713.23 | 1990-10-04 | 2002 | 1003 |
+| 3008 | 4723.00 | 1990-10-04 | 2006 | 1001 |
+| 3011 | 9891.88 | 1990-10-04 | 2006 | 1001 |
++------+---------+------------+------+------+
+6 rows in set (0.00 sec)
+
+-->15.Write a query that will give you the names and cities of all salespeople in London 
+-->with a commission above 0.10.
+D4_56329> select sname,city from salespeople where city='london' AND comm>0.10;
++--------+--------+
+| sname  | city   |
++--------+--------+
+| Peel   | London |
+| Motika | London |
++--------+--------+
+2 rows in set (0.00 sec)
+
+--16.Write a query on the Customers table whose output will exclude all customers with 
+--a rating <= 100, unless they are located in Rome
+D4_56329> select * from customers where rating>100 AND city='rome';
++------+----------+------+--------+------+
+| cnum | cname    | city | rating | snum |
++------+----------+------+--------+------+
+| 2002 | Giovanni | Rome |    200 | 1003 |
++------+----------+------+--------+------+
+1 row in set (0.00 sec)
+
+-->17.Write a query that selects all orders except those with zeroes or NULLs in the amt 
+-->field.
+D4_56329> select * from orders where amt!=0 OR amt!=NULL;
++------+---------+------------+------+------+
+| onum | amt     | odate      | cnum | snum |
++------+---------+------------+------+------+
+| 3001 |   18.69 | 1990-10-03 | 2008 | 1007 |
+| 3003 |  767.19 | 1990-10-03 | 2001 | 1001 |
+| 3002 | 1900.10 | 1990-10-03 | 2007 | 1004 |
+| 3005 | 5160.45 | 1990-10-03 | 2003 | 1002 |
+| 3006 | 1098.16 | 1990-10-03 | 2008 | 1007 |
+| 3009 | 1713.23 | 1990-10-04 | 2002 | 1003 |
+| 3007 |   75.75 | 1990-10-04 | 2004 | 1002 |
+| 3008 | 4723.00 | 1990-10-04 | 2006 | 1001 |
+| 3010 |  309.95 | 1990-10-04 | 2004 | 1002 |
+| 3011 | 9891.88 | 1990-10-04 | 2006 | 1001 |
++------+---------+------------+------+------+
+10 rows in set (0.00 sec)
+
+
+
+-->18.Display all the data from the S table.
+D4_56329> select * from s;
++------+-------+--------+--------+
+| S#   | Sname | Status | City   |
++------+-------+--------+--------+
+| s1   | Smith |     20 | London |
+| s2   | Jones |     10 | Paris  |
+| s3   | Blake |     30 | Paris  |
+| s4   | Clark |     20 | London |
+| s5   | Adams |     30 | Athens |
++------+-------+--------+--------+
+5 rows in set (0.01 sec)
+
+-->19.Display only the S# and SNAME fields from the S table.
+D4_56329> select `s#`, sname from s;
++------+-------+
+| s#   | sname |
++------+-------+
+| s1   | Smith |
+| s2   | Jones |
+| s3   | Blake |
+| s4   | Clark |
+| s5   | Adams |
++------+-------+
+5 rows in set (0.00 sec)
+
+-->20.Assuming that the Part Weight is in GRAMS, display the same in MILLIGRAMS and 
+-->KILOGRAMS.
+D4_56329> select pname, weight, weight*1000 as MG,weight*0.001 as KG from p;
++-------+--------+-------+-------+
+| pname | weight | MG    | KG    |
++-------+--------+-------+-------+
+| nut   |     12 | 12000 | 0.012 |
+| bolt  |     17 | 17000 | 0.017 |
+| screw |     17 | 17000 | 0.017 |
+| screw |     14 | 14000 | 0.014 |
+| cam   |     12 | 12000 | 0.012 |
+| cog   |     19 | 19000 | 0.019 |
++-------+--------+-------+-------+
+6 rows in set (0.00 sec)
+
+
+-->21.Display the PNAME and COLOR from the P table for the CITY=”London”
+D4_56329> select pname, color from p where city='london';
++-------+-------+
+| pname | color |
++-------+-------+
+| nut   | red   |
+| screw | red   |
+| cog   | red   |
++-------+-------+
+3 rows in set (0.00 sec)
+
+-->22.Display all the Suppliers from London.
+D4_56329> select * from s;
++------+-------+--------+--------+
+| S#   | Sname | Status | City   |
++------+-------+--------+--------+
+| s1   | Smith |     20 | London |
+| s2   | Jones |     10 | Paris  |
+| s3   | Blake |     30 | Paris  |
+| s4   | Clark |     20 | London |
+| s5   | Adams |     30 | Athens |
++------+-------+--------+--------+
+5 rows in set (0.00 sec)
+
+-->23.Display all the Suppliers from Paris or Athens.
+D4_56329> select * from s where city='paris' OR city='athens';
++------+-------+--------+--------+
+| S#   | Sname | Status | City   |
++------+-------+--------+--------+
+| s2   | Jones |     10 | Paris  |
+| s3   | Blake |     30 | Paris  |
+| s5   | Adams |     30 | Athens |
++------+-------+--------+--------+
+3 rows in set (0.00 sec)
+
+-->24.Display all the Projects in Athens.
+D4_56329> select * from j where city='athens';
++------+---------+--------+
+| j#   | janme   | city   |
++------+---------+--------+
+| j3   | reader  | athens |
+| j4   | console | athens |
++------+---------+--------+
+2 rows in set (0.00 sec)
+
+-->25.Display all the Part names with the weight between 12 and 14 (inclusive of both).
+D4_56329> select pname, weight from p where weight>=12 AND weight<=14;
++-------+--------+
+| pname | weight |
++-------+--------+
+| nut   |     12 |
+| screw |     14 |
+| cam   |     12 |
++-------+--------+
+3 rows in set (0.00 sec)
+
+-->26.Display all the Suppliers with a Status greater than or equal to 20.
+D4_56329> select * from s where status>=20;
++------+-------+--------+--------+
+| S#   | Sname | Status | City   |
++------+-------+--------+--------+
+| s1   | Smith |     20 | London |
+| s3   | Blake |     30 | Paris  |
+| s4   | Clark |     20 | London |
+| s5   | Adams |     30 | Athens |
++------+-------+--------+--------+
+4 rows in set (0.00 sec)
+
+-->27.Display all the Suppliers except the Suppliers from London
+D4_56329> select * from s where city!='london';
++------+-------+--------+--------+
+| S#   | Sname | Status | City   |
++------+-------+--------+--------+
+| s2   | Jones |     10 | Paris  |
+| s3   | Blake |     30 | Paris  |
+| s5   | Adams |     30 | Athens |
++------+-------+--------+--------+
+3 rows in set (0.00 sec)
+
+-->28.Display only the Cities from where the Suppliers come from.
+D4_56329> select city from s;
++--------+
+| city   |
++--------+
+| London |
+| Paris  |
+| Paris  |
+| London |
+| Athens |
++--------+
+5 rows in set (0.00 sec)
+
+-->29.Display the Supplier table in the descending order of CITY.
+D4_56329> select * from s ORDER BY city ASC;
++------+-------+--------+--------+
+| S#   | Sname | Status | City   |
++------+-------+--------+--------+
+| s5   | Adams |     30 | Athens |
+| s1   | Smith |     20 | London |
+| s4   | Clark |     20 | London |
+| s2   | Jones |     10 | Paris  |
+| s3   | Blake |     30 | Paris  |
++------+-------+--------+--------+
+5 rows in set (0.00 sec)
+
+-->30.Display the Part Table in the ascending order of CITY and within the city in the 
+-->ascending order of Part names.
+D4_56329> select * from p ORDER BY city asc, pname asc;
++------+-------+-------+--------+--------+
+| p#   | Pname | Color | Weight | City   |
++------+-------+-------+--------+--------+
+| p6   | cog   | red   |     19 | london |
+| p1   | nut   | red   |     12 | london |
+| p4   | screw | red   |     14 | london |
+| p2   | bolt  | green |     17 | paris  |
+| p5   | cam   | blue  |     12 | paris  |
+| p3   | screw | blue  |     17 | rome   |
++------+-------+-------+--------+--------+
+6 rows in set (0.00 sec)
+
+-->31.Display all the Suppliers with a status between 10 and 20.
+D4_56329> select * from s where status>=10 AND status<=20;
++------+-------+--------+--------+
+| S#   | Sname | Status | City   |
++------+-------+--------+--------+
+| s1   | Smith |     20 | London |
+| s2   | Jones |     10 | Paris  |
+| s4   | Clark |     20 | London |
++------+-------+--------+--------+
+3 rows in set (0.00 sec)
+
+-->32.Display all the Parts and their Weight, which are not in the range of 10 and 15.
+D4_56329> select pname , weight from p where weight<10 or weight>15;
++-------+--------+
+| pname | weight |
++-------+--------+
+| bolt  |     17 |
+| screw |     17 |
+| cog   |     19 |
++-------+--------+
+3 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,515 @@
+SOLUTION 1 :-
+
+d1_56474>SELECT odate, COUNT(onum) 'Number of Orders' FROM orders WHERE odate = '1990-10-03' GROUP BY odate;
++------------+------------------+
+| odate      | Number of Orders |
++------------+------------------+
+| 1990-10-03 |                5 |
++------------+------------------+
+1 row in set (0.01 sec)
+
+
+SOLUTION 2 :-
+
+d1_56474>SELECT city, COUNT(city) FROM customers WHERE NOT city IS NULL GROUP BY city;
++----------+-------------+
+| city     | COUNT(city) |
++----------+-------------+
+| London   |           2 |
+| Rome     |           2 |
+| San Jose |           2 |
+| Berlin   |           1 |
++----------+-------------+
+4 rows in set (0.00 sec)
+
+
+SOLUTION 3 :-
+
+d1_56474>SELECT city, AVG(comm) FROM salespeople WHERE city = 'London' GROUP BY city;
++--------+-----------+
+| city   | AVG(comm) |
++--------+-----------+
+| London |  0.115000 |
++--------+-----------+
+1 row in set (0.00 sec)
+
+
+SOLUTION 4 :-
+
+d1_56474>SELECT cnum, cname, city FROM customers WHERE (SELECT COUNT(CITY) FROM customers WHERE city='San Jose') >= 1 AND city='San Jose';
++------+----------+----------+
+| cnum | cname    | city     |
++------+----------+----------+
+| 2003 | Liu      | San Jose |
+| 2008 | Cisneros | San Jose |
++------+----------+----------+
+2 rows in set (0.00 sec)
+
+
+SOLUTION 5 :-
+
+d1_56474>SELECT Sname FROM s WHERE city LIKE 'L%';
++-------+
+| Sname |
++-------+
+| Smith |
+| Clark |
++-------+
+2 rows in set (0.01 sec)
+
+
+SOLUTION 6 :-
+
+d1_56474>SELECT Jname 'Jname(Project)' FROM j WHERE Jname LIKE '__n%';
++----------------+
+| Jname(Project) |
++----------------+
+| Punch          |
+| Console        |
++----------------+
+2 rows in set (0.02 sec)
+
+
+SOLUTION 7 :-
+
+d1_56474>SELECT CONCAT(UPPER(SUBSTR(Sname,1,1)), SUBSTR(Sname,2)) AS Sname FROM S;
++-------+
+| Sname |
++-------+
+| Smith |
+| Jones |
+| Blake |
+| Clark |
+| Adams |
++-------+
+5 rows in set (0.00 sec)
+
+
+SOLUTION 8 :-
+
+d1_56474>SELECT UPPER(Sname) FROM s;
++--------------+
+| UPPER(Sname) |
++--------------+
+| SMITH        |
+| JONES        |
+| BLAKE        |
+| CLARK        |
+| ADAMS        |
++--------------+
+5 rows in set (0.00 sec)
+
+
+SOLUTION 9 :-
+
+d1_56474>SELECT LOWER(Sname) FROM s;
++--------------+
+| LOWER(Sname) |
++--------------+
+| smith        |
+| jones        |
+| blake        |
+| clark        |
+| adams        |
++--------------+
+5 rows in set (0.00 sec)
+
+
+SOLUTION 10 :-
+
+d1_56474>SELECT Sname, LENGTH(Sname) FROM s;
++-------+---------------+
+| Sname | LENGTH(Sname) |
++-------+---------------+
+| Smith |             5 |
+| Jones |             5 |
+| Blake |             5 |
+| Clark |             5 |
+| Adams |             5 |
++-------+---------------+
+5 rows in set (0.00 sec)
+
+
+SOLUTION 11 :-
+
+d1_56474>SELECT DAYNAME(NOW());
++----------------+
+| DAYNAME(NOW()) |
++----------------+
+| Thursday       |
++----------------+
+1 row in set (0.00 sec)
+
+OR
+
+d1_56474>SELECT DAYNAME('2021-10-07');
++-----------------------+
+| DAYNAME('2021-10-07') |
++-----------------------+
+| Thursday              |
++-----------------------+
+1 row in set (0.00 sec)
+
+OR
+
+d1_56474>SELECT DAYNAME(DATE(NOW()));
++----------------------+
+| DAYNAME(DATE(NOW())) |
++----------------------+
+| Thursday             |
++----------------------+
+1 row in set (0.00 sec)
+
+
+SOLUTION 12 :-
+
+d1_56474>SELECT MIN(STATUS) FROM S;
++-------------+
+| MIN(STATUS) |
++-------------+
+|          10 |
++-------------+
+1 row in set (0.00 sec)
+
+
+SOLUTION 13 :-
+
+d1_56474>SELECT MAX(WEIGHT) FROM p;
++-------------+
+| MAX(WEIGHT) |
++-------------+
+|          19 |
++-------------+
+1 row in set (0.00 sec)
+
+
+SOLUTION 14 :-
+
+d1_56474>SELECT AVG(weight) FROM p;
++-------------+
+| AVG(weight) |
++-------------+
+|     15.1667 |
++-------------+
+1 row in set (0.00 sec)
+
+
+SOLUTION 15 :-
+
+d1_56474>SELECT `P#`, SUM(QTY) FROM sp WHERE `P#` = 'P1' GROUP BY `P#`;
++------+----------+
+| P#   | SUM(QTY) |
++------+----------+
+| P1   |     1000 |
++------+----------+
+1 row in set (0.00 sec)
+
+
+SOLUTION 16 :-
+
+d1_56474>SELECT REPLACE(Sname,'la','ro') AS 'SUPPLIE NAME' FROM s ;
++--------------+
+| SUPPLIE NAME |
++--------------+
+| Smith        |
+| Jones        |
+| Broke        |
+| Crork        |
+| Adams        |
++--------------+
+5 rows in set (0.00 sec)
+
+
+SOLUTION 17 :-
+
+d1_56474>SELECT REPLACE(REPLACE(sname,'l','r'),'a','o') AS Sname FROM s;
++-------+
+| Sname |
++-------+
+| Smith |
+| Jones |
+| Broke |
+| Crork |
+| Adoms |
++-------+
+5 rows in set (0.00 sec)
+
+                ~~~~~~ASSIGNMENT 2ND PART~~~~~~~~~
+SOLUTION 1 :-
+
+d1_56474>SELECT city, MAX(rating) AS rating FROM customers GROUP BY city;
++----------+--------+
+| city     | rating |
++----------+--------+
+| London   |    100 |
+| Rome     |    200 |
+| San Jose |    300 |
+| Berlin   |    300 |
++----------+--------+
+4 rows in set (0.00 sec)
+
+
+SOLUTION 2 :-
+
+d1_56474>SELECT odate, SUM(amt) FROM orders GROUP BY odate ORDER BY SUM(amt) DESC;
++------------+----------+
+| odate      | SUM(amt) |
++------------+----------+
+| 1990-10-04 | 16713.81 |
+| 1990-10-03 |  8944.59 |
++------------+----------+
+2 rows in set (0.00 sec)
+
+
+SOLUTION 3 :-
+
+d1_56474>SELECT snum AS Salesperson, SUM(amt) AS Total FROM orders GROUP BY snum HAVING (SUM(amt) > (SELECT MAX(amt) FROM orders));
++-------------+----------+
+| Salesperson | Total    |
++-------------+----------+
+|        1001 | 15382.07 |
++-------------+----------+
+1 row in set (0.00 sec)
+
+
+SOLUTION 4 :-
+
+d1_56474>SELECT city, max(rating) AS 'Highest rating' FROM customers GROUP BY city;
++----------+----------------+
+| city     | Highest rating |
++----------+----------------+
+| London   |            100 |
+| Rome     |            200 |
+| San Jose |            300 |
+| Berlin   |            300 |
++----------+----------------+
+4 rows in set (0.00 sec)
+
+
+SOLUTION 5 :-
+
+d1_56474>SELECT snum, MAX(amt) FROM orders WHERE amt > 3000 GROUP BY snum;
++------+----------+
+| snum | MAX(amt) |
++------+----------+
+| 1002 |  5160.45 |
+| 1001 |  9891.88 |
++------+----------+
+2 rows in set (0.00 sec)
+
+OR
+
+d1_56474>SELECT snum, MAX(amt) FROM orders GROUP BY snum HAVING MAX(amt) > 3000;
++------+----------+
+| snum | MAX(amt) |
++------+----------+
+| 1001 |  9891.88 |
+| 1002 |  5160.45 |
++------+----------+
+2 rows in set (0.00 sec)
+
+
+SOLUTION 6 :-
+
+d1_56474>SELECT Manager_ID, COUNT(Employee_ID) AS 'Number of Employees' FROM employees GROUP BY MANAGER_ID;
++------------+---------------------+
+| Manager_ID | Number of Employees |
++------------+---------------------+
+|          0 |                   1 |
+|        100 |                  14 |
+|        101 |                   5 |
+|        102 |                   1 |
+|        103 |                   4 |
+|        108 |                   5 |
+|        114 |                   5 |
+|        120 |                   8 |
+|        121 |                   8 |
+|        122 |                   8 |
+|        123 |                   8 |
+|        124 |                   8 |
+|        145 |                   6 |
+|        146 |                   6 |
+|        147 |                   6 |
+|        148 |                   6 |
+|        149 |                   6 |
+|        201 |                   1 |
+|        205 |                   1 |
++------------+---------------------+
+19 rows in set (0.01 sec)
+
+
+SOLUTION 7 :-
+
+d1_56474>SELECT COUNTRY_ID, COUNT(CITY) AS 'NUMBER OF CITIES' FROM LOCATIONS GROUP BY COUNTRY_ID;
++------------+------------------+
+| COUNTRY_ID | NUMBER OF CITIES |
++------------+------------------+
+| "          |                1 |
+| AU         |                1 |
+| BR         |                1 |
+| CA         |                2 |
+| CH         |                2 |
+| CN         |                1 |
+| DE         |                1 |
+| IN         |                1 |
+| IT         |                2 |
+| JP         |                2 |
+| NL         |                1 |
+| Ox         |                1 |
+| SG         |                1 |
+| UK         |                2 |
+| US         |                4 |
++------------+------------------+
+15 rows in set (0.00 sec)
+
+
+SOLUTION 8 :-
+
+d1_56474>SELECT DEPARTMENT_ID, AVG(SALARY) FROM EMPLOYEES WHERE COMMISSION_PCT != 0.00 GROUP BY DEPARTMENT_ID;
++---------------+-------------+
+| DEPARTMENT_ID | AVG(SALARY) |
++---------------+-------------+
+|             0 | 7000.000000 |
+|            80 | 8955.882353 |
++---------------+-------------+
+
+
+SOLUTION 9 :-
+
+d1_56474>SELECT Job_ID, COUNT(EMPLOYEE_ID) AS 'NUMBER OF EMPLOYEES', SUM(SALARY) AS 'TOTAL SALARY', (MAX(SALARY) - MIN(SALARY)) AS 'DIFFERENCE BETWEEN MAXIMUM AND MINIMUM SALARY' FROM EMPLOYEES GROUP BY JOB_ID;
++------------+---------------------+--------------+-----------------------------------------------+
+| Job_ID     | NUMBER OF EMPLOYEES | TOTAL SALARY | DIFFERENCE BETWEEN MAXIMUM AND MINIMUM SALARY |
++------------+---------------------+--------------+-----------------------------------------------+
+| AC_ACCOUNT |                   1 |      8300.00 |                                          0.00 |
+| AC_MGR     |                   1 |     12000.00 |                                          0.00 |
+| AD_ASST    |                   1 |      4400.00 |                                          0.00 |
+| AD_PRES    |                   1 |     24000.00 |                                          0.00 |
+| AD_VP      |                   2 |     34000.00 |                                          0.00 |
+| FI_ACCOUNT |                   5 |     39600.00 |                                       2100.00 |
+| FI_MGR     |                   1 |     12000.00 |                                          0.00 |
+| HR_REP     |                   1 |      6500.00 |                                          0.00 |
+| IT_PROG    |                   5 |     28800.00 |                                       4800.00 |
+| MK_MAN     |                   1 |     13000.00 |                                          0.00 |
+| MK_REP     |                   1 |      6000.00 |                                          0.00 |
+| PR_REP     |                   1 |     10000.00 |                                          0.00 |
+| PU_CLERK   |                   5 |     13900.00 |                                        600.00 |
+| PU_MAN     |                   1 |     11000.00 |                                          0.00 |
+| SA_MAN     |                   5 |     61000.00 |                                       3500.00 |
+| SA_REP     |                  30 |    250500.00 |                                       5400.00 |
+| SH_CLERK   |                  20 |     64300.00 |                                       1700.00 |
+| ST_CLERK   |                  20 |     55700.00 |                                       1500.00 |
+| ST_MAN     |                   5 |     36400.00 |                                       2400.00 |
++------------+---------------------+--------------+-----------------------------------------------+
+19 rows in set (0.00 sec)
+
+
+SOLUTION 10 :-
+
+d1_56474>SELECT JOB_ID FROM EMPLOYEES GROUP BY JOB_ID HAVING AVG(SALARY) > 10000;
++---------+
+| JOB_ID  |
++---------+
+| AC_MGR  |
+| AD_PRES |
+| AD_VP   |
+| FI_MGR  |
+| MK_MAN  |
+| PU_MAN  |
+| SA_MAN  |
++---------+
+7 rows in set (0.00 sec)
+
+
+SOLUTION 11 :-
+
+d1_56474>SELECT YEAR(HIRE_DATE), COUNT(YEAR(HIRE_DATE)) FROM EMPLOYEES GROUP BY YEAR(HIRE_DATE) HAVING COUNT(YEAR(HIRE_DATE)) > 10;
++-----------------+------------------------+
+| YEAR(HIRE_DATE) | COUNT(YEAR(HIRE_DATE)) |
++-----------------+------------------------+
+|            1987 |                    107 |
++-----------------+------------------------+
+1 row in set (0.00 sec)
+
+
+SOLUTION 12 :-
+
+d1_56474>SELECT DEPARTMENT_ID FROM EMPLOYEES WHERE COMMISSION_PCT > 0.00 GROUP BY DEPARTMENT_ID HAVING COUNT(EMPLOYEE_ID) > 5;
++---------------+
+| DEPARTMENT_ID |
++---------------+
+|            80 |
++---------------+
+1 row in set (0.00 sec)
+
+
+SOLUTION 13 :-
+
+d1_56474>SELECT EMPLOYEE_ID FROM JOB_HISTORY GROUP BY EMPLOYEE_ID HAVING COUNT(DISTINCT JOB_ID) > 1;
++-------------+
+| EMPLOYEE_ID |
++-------------+
+|         101 |
+|         176 |
+|         200 |
++-------------+
+3 rows in set (0.01 sec)
+
+
+SOLUTION 14 :-
+
+d1_56474>SELECT JOB_ID FROM JOB_HISTORY WHERE END_DATE - START_DATE > 100 GROUP BY JOB_ID HAVING COUNT(EMPLOYEE_ID) > 3;
+Empty set (0.00 sec)
+
+
+SOLUTION 15 :-
+
+d1_56474>SELECT department_ID, YEAR(HIRE_DATE), COUNT(employee_ID) FROM employees GROUP BY department_ID, YEAR(HIRE_DATE);
++---------------+-----------------+--------------------+
+| department_ID | YEAR(HIRE_DATE) | COUNT(employee_ID) |
++---------------+-----------------+--------------------+
+|            90 |            1987 |                  3 |
+|            60 |            1987 |                  5 |
+|           100 |            1987 |                  6 |
+|            30 |            1987 |                  6 |
+|            50 |            1987 |                 45 |
+|            80 |            1987 |                 34 |
+|             0 |            1987 |                  1 |
+|            10 |            1987 |                  1 |
+|            20 |            1987 |                  2 |
+|            40 |            1987 |                  1 |
+|            70 |            1987 |                  1 |
+|           110 |            1987 |                  2 |
++---------------+-----------------+--------------------+
+12 rows in set (0.00 sec)
+
+
+SOLUTION 16 :- 
+
+d1_56474>SELECT MONTH(HIRE_DATE),YEAR(HIRE_DATE),COUNT(EMPLOYEE_ID) FROM employees GROUP BY MONTH(HIRE_DATE),YEAR(HIRE_DATE);
++------------------+-----------------+--------------------+
+| MONTH(HIRE_DATE) | YEAR(HIRE_DATE) | COUNT(EMPLOYEE_ID) |
++------------------+-----------------+--------------------+
+|                6 |            1987 |                 14 |
+|                7 |            1987 |                 31 |
+|                8 |            1987 |                 31 |
+|                9 |            1987 |                 30 |
+|               10 |            1987 |                  1 |
++------------------+-----------------+--------------------+
+5 rows in set (0.00 sec)
+
+
+SOLUTION 17 :-
+
+d1_56474>SELECT * FROM DEPARTMENTS WHERE DEPARTMENT_ID IN ( SELECT DEPARTMENT_ID FROM EMPLOYEES GROUP BY DEPARTMENT_ID HAVING MAX(SALARY)>10000);
++---------------+-----------------+------------+-------------+
+| DEPARTMENT_ID | DEPARTMENT_NAME | MANAGER_ID | LOCATION_ID |
++---------------+-----------------+------------+-------------+
+|            20 | Marketing       |        201 |        1800 |
+|            30 | Purchasing      |        114 |        1700 |
+|            80 | Sales           |        145 |        2500 |
+|            90 | Executive       |        100 |        1700 |
+|           100 | Finance         |        108 |        1700 |
+|           110 | Accounting      |        205 |        1700 |
++---------------+-----------------+------------+-------------+
+6 rows in set (0.01 sec)
+
