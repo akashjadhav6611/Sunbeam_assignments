@@ -1,0 +1,436 @@
+1. Write a query that counts all orders for October 3.
+
+D3_56656>select count(odate)  from orders where odate='1990-10-03';
++--------------+
+| count(odate) |
++--------------+
+|            5 |
++--------------+
+
+2. Write a query that counts the number of different non-NULL city values in the Customers table.
+
+D3_56656>select city,count(city) from customers group by city;
++----------+-------------+
+| city     | count(city) |
++----------+-------------+
+| London   |           2 |
+| Rome     |           2 |
+| San Jose |           2 |
+| Berlin   |           1 |
++----------+-------------+
+
+3.Find average commission of salespeople in London.
+
+D3_56656>select avg(comm) from salespeople where city='London';
++-----------+
+| avg(comm) |
++-----------+
+|  0.115000 |
++-----------+
+
+4. Extract cnum, cname and city from customer table if and only if one or more of the customers in the table are located in San Jose.
+D3_56656>select cnum,cname,city from customers where city ='San Jose' group by city,cname,cnum having count(city)>=1;
++------+----------+----------+
+| cnum | cname    | city     |
++------+----------+----------+
+| 2003 | Liu      | San Jose |
+| 2008 | Cisneros | San Jose |
++------+----------+----------+
+
+5. Display all the Suppliers, belonging to cities starting with the letter ‘L’.
+D3_56656>select * from s where city like 'L%';
++------+-------+--------+--------+
+| S#   | Sname | Status | City   |
++------+-------+--------+--------+
+| S1   | Smith |     20 | London |
+| S4   | Clark |     20 | London |
++------+-------+--------+--------+
+
+6. Display all the Projects, with the third letter in JNAME as ‘n’.
+
+D3_56656>select * from j where jname like '__n%';
++------+---------+--------+
+| J#   | Jname   | City   |
++------+---------+--------+
+| J2   | Punch   | Rome   |
+| J4   | Console | Athens |
++------+---------+--------+
+
+7. Display all the Supplier names with the initial letter capital.
+
+D3_56656>select concat(upper(left(sname,1)),substring(sname,2)) Name from s ;
++-------+
+| Name  |
++-------+
+| Smith |
+| Jones |
+| Blake |
+| Clark |
+| Adams |
++-------+
+
+8. Display all the Supplier names in upper case.
+D3_56656>select upper(sname) from s ;
++--------------+
+| upper(sname) |
++--------------+
+| SMITH        |
+| JONES        |
+| BLAKE        |
+| CLARK        |
+| ADAMS        |
++--------------+ 
+
+9. Display all the Supplier names in lower case.
+
+D3_56656>select lower(sname) from s ;
++--------------+
+| lower(sname) |
++--------------+
+| smith        |
+| jones        |
+| blake        |
+| clark        |
+| adams        |
++--------------+
+
+10. Display the Supplier names and the lengths of the names.
+
+D3_56656>select sname, length(sname) Lenghth from s ;
++-------+---------+
+| sname | Lenghth |
++-------+---------+
+| Smith |       5 |
+| Jones |       5 |
+| Blake |       5 |
+| Clark |       5 |
+| Adams |       5 |
++-------+---------+
+
+11. Display the current day (e.g. Thursday).
+D3_56656>select DAYNAME(NOW());//Returns the weekday index for date (1 = Sunday, 2 = Monday, ..., 7 =
+Saturday).
++------------------+
+| DAYOFWEEK(NOW()) |
++------------------+
+|                5 |
++------------------+
+
+12. Display the minimum Status in the Supplier table.
+D3_56656>select min(status) from s;
++-------------+
+| min(status) |
++-------------+
+|          10 |
++-------------+
+
+13. Display the maximum Weight in the Parts table.
+
+D3_56656>select max(Weight) from p;
++-------------+
+| max(Weight) |
++-------------+
+|          19 |
++-------------+
+
+14. Display the average Weight of the Parts.
+
+D3_56656>select avg(Weight) from p;
++-------------+
+| avg(Weight) |
++-------------+
+|     15.1667 |
+-----------------
+
+15. Display the total Quantity sold for part ‘P1’.
+
+
+D3_56656>select sum(QTY) from sp where `P#`='P1';
++----------+
+| sum(QTY) |
++----------+
+|     1000 |
++----------+
+
+16. Display all the Supplier names (with ‘la’ replaced by ‘ro’).
+
+D3_56656>SELECT REPLACE(sname, 'la', 'ro') from s;
++----------------------------+
+| REPLACE(sname, 'la', 'ro') |
++----------------------------+
+| Smith                      |
+| Jones                      |
+| Broke                      |
+| Crork                      |
+| Adams                      |
++----------------------------+
+
+17. Implement the above command such that ‘l’ is replaced with ‘r’ and ‘a’ is replaced with ‘o’.
+D3_56656>SELECT REPLACE((REPLACE(sname, 'l', 'r')),'a','o')from s;
++---------------------------------------------+
+| REPLACE((REPLACE(sname, 'l', 'r')),'a','o') |
++---------------------------------------------+
+| Smith                                       |
+| Jones                                       |
+| Broke                                       |
+| Crork                                       |
+| Adoms                                       |
++---------------------------------------------+
+
+1. Write a query on the Customers table that will find the highest rating in each city. Put the output in this form: For the city (city), the highest rating is: (rating).
+
+D3_56656>select concat('For the city ', city,',the highest rating: ',max(rating)) Customers from customers group by city;
++-----------------------------------------------+
+| Customers                                     |
++-----------------------------------------------+
+| For the city London,the highest rating: 100   |
+| For the city Rome,the highest rating: 200     |
+| For the city San Jose,the highest rating: 300 |
+| For the city Berlin,the highest rating: 300   |
++-----------------------------------------------+
+
+2. Write a query that totals the orders for each day and places the results in descending order.
+
+D3_56656>select count(onum) Total,odate  Date from orders group by odate order by odate desc;
++-------+------------+
+| Total | Date       |
++-------+------------+
+|     5 | 1990-10-04 |
+|     5 | 1990-10-03 |
++-------+------------+
+3. Write a query that selects the total amount in orders for each salesperson for whom this total is greater than the amount of the largest order in the table.
+D3_56656>select snum,sum(amt) from orders group by snum having sum(amt)>max(amt);
+
+
+
+
+
+
+4. Write a query that selects the highest rating in each city.
+
+D3_56656>select city,max(rating) from customers group by city;
++----------+-------------+
+| city     | max(rating) |
++----------+-------------+
+| London   |         100 |
+| Rome     |         200 |
+| San Jose |         300 |
+| Berlin   |         300 |
++----------+-------------+
+
+5. Largest order taken by each salesperson with order value more than Rs.3000.
+
+D3_56656>select snum,max(amt) from orders group by snum having max(amt)>3000;
++------+----------+
+| snum | max(amt) |
++------+----------+
+| 1001 |  9891.88 |
+| 1002 |  5160.45 |
++------+----------+
+
+6. Display manager ID and number of employees managed by the manager.
+D3_56656>select manager_id,count(employee_id) from employees group by manager_id;
++------------+--------------------+
+| manager_id | count(employee_id) |
++------------+--------------------+
+|          0 |                  1 |
+|        100 |                 14 |
+|        101 |                  5 |
+|        102 |                  1 |
+|        103 |                  4 |
+|        108 |                  5 |
+|        114 |                  5 |
+|        120 |                  8 |
+|        121 |                  8 |
+|        122 |                  8 |
+|        123 |                  8 |
+|        124 |                  8 |
+|        145 |                  6 |
+|        146 |                  6 |
+|        147 |                  6 |
+|        148 |                  6 |
+|        149 |                  6 |
+|        201 |                  1 |
+|        205 |                  1 |
++------------+--------------------+
+
+7. Display the country ID and number of cities we have in the country.
+
+D3_56656>select country_id,count(city) from locations group by country_id;
++------------+-------------+
+| country_id | count(city) |
++------------+-------------+
+| "          |           1 |
+| AU         |           1 |
+| BR         |           1 |
+| CA         |           2 |
+| CH         |           2 |
+| CN         |           1 |
+| DE         |           1 |
+| IN         |           1 |
+| IT         |           2 |
+| JP         |           2 |
+| NL         |           1 |
+| Ox         |           1 |
+| SG         |           1 |
+| UK         |           2 |
+| US         |           4 |
++------------+-------------+
+
+8. Display average salary of employees in each department who have commission percentage.
+
+
+D3_56656>select department_id,avg(salary) from employees where commission_pct!=0.0 group by department_id;
++---------------+-------------+
+| department_id | avg(salary) |
++---------------+-------------+
+|             0 | 7000.000000 |
+|            80 | 8955.882353 |
++---------------+-------------+
+
+9. Display job ID, number of employees, sum of salary, and difference between highest salary and lowest salary of the employees of the job.
+
+
+D3_56656>select job_id,count(employee_id),sum(salary),max(salary)-min(salary) Difference from employees group by job_id;
++------------+--------------------+-------------+------------+
+| job_id     | count(employee_id) | sum(salary) | Difference |
++------------+--------------------+-------------+------------+
+| AC_ACCOUNT |                  1 |     8300.00 |       0.00 |
+| AC_MGR     |                  1 |    12000.00 |       0.00 |
+| AD_ASST    |                  1 |     4400.00 |       0.00 |
+| AD_PRES    |                  1 |    24000.00 |       0.00 |
+| AD_VP      |                  2 |    34000.00 |       0.00 |
+| FI_ACCOUNT |                  5 |    39600.00 |    2100.00 |
+| FI_MGR     |                  1 |    12000.00 |       0.00 |
+| HR_REP     |                  1 |     6500.00 |       0.00 |
+| IT_PROG    |                  5 |    28800.00 |    4800.00 |
+| MK_MAN     |                  1 |    13000.00 |       0.00 |
+| MK_REP     |                  1 |     6000.00 |       0.00 |
+| PR_REP     |                  1 |    10000.00 |       0.00 |
+| PU_CLERK   |                  5 |    13900.00 |     600.00 |
+| PU_MAN     |                  1 |    11000.00 |       0.00 |
+| SA_MAN     |                  5 |    61000.00 |    3500.00 |
+| SA_REP     |                 30 |   250500.00 |    5400.00 |
+| SH_CLERK   |                 20 |    64300.00 |    1700.00 |
+| ST_CLERK   |                 20 |    55700.00 |    1500.00 |
+| ST_MAN     |                  5 |    36400.00 |    2400.00 |
++------------+--------------------+-------------+------------+
+
+
+10. Display job ID for jobs with average salary more than 10000.
+
+D3_56656>select job_id,avg(salary) from employees group by job_id having avg(salary)>10000;
++---------+--------------+
+| job_id  | avg(salary)  |
++---------+--------------+
+| AC_MGR  | 12000.000000 |
+| AD_PRES | 24000.000000 |
+| AD_VP   | 17000.000000 |
+| FI_MGR  | 12000.000000 |
+| MK_MAN  | 13000.000000 |
+| PU_MAN  | 11000.000000 |
+| SA_MAN  | 12200.000000 |
++---------+--------------+
+
+
+11. Display years in which more than 10 employees joined.
+
+
+D3_56656>select Year(hire_date),count(employee_id) from employees group by Year(hire_date) having count(employee_id)>10;
++-----------------+--------------------+
+| Year(hire_date) | count(employee_id) |
++-----------------+--------------------+
+|            1987 |                107 |
++-----------------+--------------------+
+
+12. Display departments in which more than five employees have commission percentage.
+
+D3_56656>select department_id,commission_pct from employees group by department_id,commission_pct having commission_pct>0 and count(employee_id)>5;
++---------------+----------------+
+| department_id | commission_pct |
++---------------+----------------+
+|            80 |           0.30 |
+|            80 |           0.20 |
+|            80 |           0.25 |
+|            80 |           0.10 |
++---------------+----------------+
+
+
+13. Display employee ID for employees who did more than one job in the past.
+
+
+D3_56656>select employee_id,count(employee_id) from job_history group by employee_id having count(employee_id)>1;
++-------------+--------------------+
+| employee_id | count(employee_id) |
++-------------+--------------------+
+|         101 |                  2 |
+|         176 |                  2 |
+|         200 |                  2 |
++-------------+--------------------+
+
+14. Display job ID of jobs that were done by more than 3 employees for more than 100 days.
+
+D3_56656>select job_id, count(employee_id) from employees where  DATEDIFF(NOW(),hire_date)>100 group by job_id having count(employee_id)>3;
++------------+--------------------+
+| job_id     | count(employee_id) |
++------------+--------------------+
+| FI_ACCOUNT |                  5 |
+| IT_PROG    |                  5 |
+| PU_CLERK   |                  5 |
+| SA_MAN     |                  5 |
+| SA_REP     |                 30 |
+| SH_CLERK   |                 20 |
+| ST_CLERK   |                 20 |
+| ST_MAN     |                  5 |
++------------+--------------------+
+
+
+15. Display department ID, year, and Number of employees joined.
+D3_56656>select department_id,count(employee_id)' Number of EMP',Year(hire_date) year from employees group by department_id, Year(hire_date);
++---------------+---------------+------+
+| department_id | Number of EMP | year |
++---------------+---------------+------+
+|            90 |             3 | 1987 |
+|            60 |             5 | 1987 |
+|           100 |             6 | 1987 |
+|            30 |             6 | 1987 |
+|            50 |            45 | 1987 |
+|            80 |            34 | 1987 |
+|             0 |             1 | 1987 |
+|            10 |             1 | 1987 |
+|            20 |             2 | 1987 |
+|            40 |             1 | 1987 |
+|            70 |             1 | 1987 |
+|           110 |             2 | 1987 |
++---------------+---------------+------+
+
+16. Display how many employees joined in each month of the current year.
+
+D3_56656>select Month(hire_date),count(employee_id) from employees group by month(hire_date);
++------------------+--------------------+
+| Month(hire_date) | count(employee_id) |
++------------------+--------------------+
+|                6 |                 14 |
+|                7 |                 31 |
+|                8 |                 31 |
+|                9 |                 30 |
+|               10 |                  1 |
++------------------+--------------------+
+
+
+17. Display details of departments in which the maximum salary is more than 10000.
+
+D3_56656>select department_id,max(salary) from employees group by department_id having max(salary)>10000;
++---------------+-------------+
+| department_id | max(salary) |
++---------------+-------------+
+|            20 |    13000.00 |
+|            30 |    11000.00 |
+|            80 |    14000.00 |
+|            90 |    24000.00 |
+|           100 |    12000.00 |
+|           110 |    12000.00 |
++---------------+-------------+
+
+
+
