@@ -160,7 +160,7 @@ sunbeam>SELECT C.CNAME CUSTOMER_NAME, SUM(o.oamount) TOTAL FROM customers c INNE
 
 
 
-sunbeam>SELECT * FROM orders WHERE cid = (SELECT cid FROM customers WHERE cname = 'Adam') ORDER BY odate LIMIT 1;
+sunbeam>SELECT * FROM orders WHERE cid = (SELECT cid FROM customers WHERE cname = 'Adam') ORDER BY odate DESC LIMIT 1;
 +-----+------------+---------+---------+------+
 | oid | odate      | ostatus | oamount | cid  |
 +-----+------------+---------+---------+------+
@@ -170,11 +170,11 @@ sunbeam>SELECT * FROM orders WHERE cid = (SELECT cid FROM customers WHERE cname 
 
 
 
-sunbeam>UPDATE orders SET ostatus = 'dispatch' WHERE cid = (SELECT cid FROM customers WHERE cname = 'Adam') ORDER BY odate LIMIT 1;
+sunbeam>UPDATE orders SET ostatus = 'dispatch' WHERE cid = (SELECT cid FROM customers WHERE cname = 'Adam') ORDER BY odate DESC LIMIT 1;
 Query OK, 1 row affected (0.19 sec)
 Rows matched: 1  Changed: 1  Warnings: 0
 
-sunbeam>SELECT * FROM orders WHERE cid = (SELECT cid FROM customers WHERE cname = 'Adam') ORDER BY odate LIMIT 1;
+sunbeam>SELECT * FROM orders WHERE cid = (SELECT cid FROM customers WHERE cname = 'Adam') ORDER BY odate DESC LIMIT 1;
 +-----+------------+----------+---------+------+
 | oid | odate      | ostatus  | oamount | cid  |
 +-----+------------+----------+---------+------+
@@ -185,11 +185,11 @@ sunbeam>SELECT * FROM orders WHERE cid = (SELECT cid FROM customers WHERE cname 
 
 
 
-sunbeam>UPDATE orders SET ostatus = 'delivered' WHERE cid = (SELECT cid FROM customers WHERE cname = 'Adam') ORDER BY odate LIMIT 1;
+sunbeam>UPDATE orders SET ostatus = 'delivered' WHERE cid = (SELECT cid FROM customers WHERE cname = 'Adam') ORDER BY odate DESC LIMIT 1;
 Query OK, 1 row affected (0.27 sec)
 Rows matched: 1  Changed: 1  Warnings: 0
 
-sunbeam>SELECT * FROM orders WHERE cid = (SELECT cid FROM customers WHERE cname = 'Adam') ORDER BY odate LIMIT 1;
+sunbeam>SELECT * FROM orders WHERE cid = (SELECT cid FROM customers WHERE cname = 'Adam') ORDER BY odate DESC LIMIT 1;
 +-----+------------+-----------+---------+------+
 | oid | odate      | ostatus   | oamount | cid  |
 +-----+------------+-----------+---------+------+
