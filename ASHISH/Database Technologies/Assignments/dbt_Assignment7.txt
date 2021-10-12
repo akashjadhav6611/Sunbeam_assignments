@@ -1,0 +1,210 @@
+SOLUTION 1 :-
+
+d1_56474>SELECT c.cname, o.onum, o.amt, o.odate, o.snum FROM customers c
+    -> INNER JOIN orders o ON c.cnum = o.cnum WHERE o.cnum = (SELECT cnum FROM customers WHERE cname = 'Cisneros');
++----------+------+---------+------------+------+
+| cname    | onum | amt     | odate      | snum |
++----------+------+---------+------------+------+
+| Cisneros | 3001 |   18.69 | 1990-10-03 | 1007 |
+| Cisneros | 3006 | 1098.16 | 1990-10-03 | 1007 |
++----------+------+---------+------------+------+
+2 rows in set (0.01 sec)
+
+
+SOLUTION 2 :-
+
+d1_56474>SELECT DISTINCT c.cname, c.rating FROM customers c INNER JOIN orders o ON c.cnum = o.cnum WHERE o.amt > (SELECT AVG(amt) FROM orders);
++---------+--------+
+| cname   | rating |
++---------+--------+
+| Liu     |    200 |
+| Clemens |    100 |
++---------+--------+
+2 rows in set (0.00 sec)
+
+
+SOLUTION 3 :-
+
+d1_56474>SELECT s.snum, SUM(o.amt) AS total_amount FROM salespeople s INNER JOIN orders o ON s.snum = o.snum GROUP BY snum HAVING total_amount > (SELECT MAX(amt) FROM orders);
++------+--------------+
+| snum | total_amount |
++------+--------------+
+| 1001 |     15382.07 |
++------+--------------+
+1 row in set (0.00 sec)
+
+
+SOLUTION 4 :-
+
+d1_56474>SELECT * FROM customers WHERE rating >= ANY(SELECT rating FROM customers WHERE snum = (SELECT snum FROM salespeople WHERE sname = 'Serres'));
++------+----------+----------+--------+------+
+| cnum | cname    | city     | rating | snum |
++------+----------+----------+--------+------+
+| 2002 | Giovanni | Rome     |    200 | 1003 |
+| 2003 | Liu      | San Jose |    200 | 1002 |
+| 2004 | Grass    | Berlin   |    300 | 1002 |
+| 2008 | Cisneros | San Jose |    300 | 1007 |
++------+----------+----------+--------+------+
+4 rows in set (0.00 sec)
+
+
+SOLUTION 5 :-
+
+d1_56474>SELECT sname FROM salespeople WHERE city NOT IN(SELECT city FROM customers);
++---------+
+| sname   |
++---------+
+| Rifkin  |
+| Axelrod |
++---------+
+2 rows in set (0.00 sec)
+
+
+SOLUTION 6 :-
+
+d1_56474>SELECT * FROM orders WHERE amt > ANY(SELECT amt FROM orders WHERE cnum IN(SELECT cnum FROM customers WHERE city = 'London'));
++------+---------+------------+------+------+
+| onum | amt     | odate      | cnum | snum |
++------+---------+------------+------+------+
+| 3002 | 1900.10 | 1990-10-03 | 2007 | 1004 |
+| 3005 | 5160.45 | 1990-10-03 | 2003 | 1002 |
+| 3006 | 1098.16 | 1990-10-03 | 2008 | 1007 |
+| 3009 | 1713.23 | 1990-10-04 | 2002 | 1003 |
+| 3008 | 4723.00 | 1990-10-04 | 2006 | 1001 |
+| 3011 | 9891.88 | 1990-10-04 | 2006 | 1001 |
++------+---------+------------+------+------+
+6 rows in set (0.00 sec)
+
+
+SOLUTION 7 :-
+
+d1_56474>SELECT * FROM orders WHERE snum = (SELECT snum FROM salespeople WHERE sname = 'Motika');
++------+---------+------------+------+------+
+| onum | amt     | odate      | cnum | snum |
++------+---------+------------+------+------+
+| 3002 | 1900.10 | 1990-10-03 | 2007 | 1004 |
++------+---------+------------+------+------+
+1 row in set (0.00 sec)
+
+
+SOLUTION 8 :-
+
+d1_56474>SELECT * FROM orders WHERE snum = ANY(SELECT snum FROM salespeople WHERE city = 'London');
++------+---------+------------+------+------+
+| onum | amt     | odate      | cnum | snum |
++------+---------+------------+------+------+
+| 3003 |  767.19 | 1990-10-03 | 2001 | 1001 |
+| 3002 | 1900.10 | 1990-10-03 | 2007 | 1004 |
+| 3008 | 4723.00 | 1990-10-04 | 2006 | 1001 |
+| 3011 | 9891.88 | 1990-10-04 | 2006 | 1001 |
++------+---------+------------+------+------+
+4 rows in set (0.00 sec)
+
+
+SOLUTION 9 :-
+
+d1_56474>SELECT snum, sname FROM salespeople WHERE snum = ANY(SELECT snum FROM customers GROUP BY snum HAVING count(snum) > 1);
++------+--------+
+| snum | sname  |
++------+--------+
+| 1001 | Peel   |
+| 1002 | Serres |
++------+--------+
+2 rows in set (0.01 sec)
+
+
+SOLUTION 10 :-
+
+d1_56474>SELECT snum, sname, city FROM salespeople WHERE snum = ANY(SELECT snum FROM customers GROUP BY snum HAVING count(snum) > 1);
++------+--------+----------+
+| snum | sname  | city     |
++------+--------+----------+
+| 1001 | Peel   | London   |
+| 1002 | Serres | San Jose |
++------+--------+----------+
+2 rows in set (0.00 sec)
+
+
+SOLUTION 11 :-
+
+d1_56474>SELECT * FROM customers WHERE rating > ANY(SELECT rating FROM customers WHERE city = 'Rome');
++------+----------+----------+--------+------+
+| cnum | cname    | city     | rating | snum |
++------+----------+----------+--------+------+
+| 2002 | Giovanni | Rome     |    200 | 1003 |
+| 2003 | Liu      | San Jose |    200 | 1002 |
+| 2004 | Grass    | Berlin   |    300 | 1002 |
+| 2008 | Cisneros | San Jose |    300 | 1007 |
++------+----------+----------+--------+------+
+4 rows in set (0.00 sec)
+
+
+SOLUTION 12 :-
+
+d1_56474>SELECT onum FROM orders WHERE amt > ANY(SELECT amt FROM orders WHERE odate = '1990-10-04');
++------+
+| onum |
++------+
+| 3003 |
+| 3002 |
+| 3005 |
+| 3006 |
+| 3009 |
+| 3008 |
+| 3010 |
+| 3011 |
++------+
+8 rows in set (0.00 sec)
+
+
+SOLUTION 13 :-
+
+d1_56474>SELECT * FROM orders WHERE amt < ANY(SELECT amt FROM orders WHERE snum IN(SELECT snum FROM customers WHERE city = 'San Jose'));
++------+---------+------------+------+------+
+| onum | amt     | odate      | cnum | snum |
++------+---------+------------+------+------+
+| 3001 |   18.69 | 1990-10-03 | 2008 | 1007 |
+| 3003 |  767.19 | 1990-10-03 | 2001 | 1001 |
+| 3002 | 1900.10 | 1990-10-03 | 2007 | 1004 |
+| 3006 | 1098.16 | 1990-10-03 | 2008 | 1007 |
+| 3009 | 1713.23 | 1990-10-04 | 2002 | 1003 |
+| 3007 |   75.75 | 1990-10-04 | 2004 | 1002 |
+| 3008 | 4723.00 | 1990-10-04 | 2006 | 1001 |
+| 3010 |  309.95 | 1990-10-04 | 2004 | 1002 |
++------+---------+------------+------+------+
+8 rows in set (0.00 sec)
+
+OR
+
+d1_56474>SELECT * FROM orders WHERE amt < ANY(SELECT o.amt FROM orders o INNER JOIN customers c ON o.cnum = c.cnum WHERE c.city = 'San Jose');
++------+---------+------------+------+------+
+| onum | amt     | odate      | cnum | snum |
++------+---------+------------+------+------+
+| 3001 |   18.69 | 1990-10-03 | 2008 | 1007 |
+| 3003 |  767.19 | 1990-10-03 | 2001 | 1001 |
+| 3002 | 1900.10 | 1990-10-03 | 2007 | 1004 |
+| 3006 | 1098.16 | 1990-10-03 | 2008 | 1007 |
+| 3009 | 1713.23 | 1990-10-04 | 2002 | 1003 |
+| 3007 |   75.75 | 1990-10-04 | 2004 | 1002 |
+| 3008 | 4723.00 | 1990-10-04 | 2006 | 1001 |
+| 3010 |  309.95 | 1990-10-04 | 2004 | 1002 |
++------+---------+------------+------+------+
+8 rows in set (0.00 sec)
+
+
+SOLUTION 14 :-
+
+d1_56474>SELECT cname FROM customers WHERE rating > ALL(SELECT rating FROM customers WHERE city = 'Paris');
++----------+
+| cname    |
++----------+
+| Hoffman  |
+| Giovanni |
+| Liu      |
+| Grass    |
+| Clemens  |
+| Cisneros |
+| Pereira  |
++----------+
+7 rows in set (0.00 sec)
+
