@@ -24,11 +24,21 @@ sunbeam>SELECT p.city CITY, COUNT(c.cid) NO_OF_CUSTOMERS FROM customers c INNER 
 
 2. Find number of pending and number of delivered orders whose total amount is more than 100.
 
-sunbeam>SELECT ostatus STATUS, COUNT(cid) NO_OF_ORDERS FROM orders WHERE ostatus IN ('delivered', 'pending') and oamount > 100 group by ostatus;
+sunbeam>SELECT ostatus STATUS, COUNT(cid) NO_OF_ORDERS FROM orders WHERE ostatus IN ('delivered', 'pending') and oamount > 100 GROUP BY ostatus;
+
 +-----------+--------------+
 | STATUS    | NO_OF_ORDERS |
 +-----------+--------------+
 | delivered |            3 |
+| pending   |            1 |
++-----------+--------------+
+2 rows in set (0.00 sec)
+
+sunbeam>SELECT ostatus STATUS, COUNT(cid) NO_OF_ORDERS FROM orders WHERE ostatus IN ('delivered', 'pending') GROUP BY ostatus HAVING SUM(oamount) > 100;
++-----------+--------------+
+| STATUS    | NO_OF_ORDERS |
++-----------+--------------+
+| delivered |            4 |
 | pending   |            1 |
 +-----------+--------------+
 2 rows in set (0.00 sec)
@@ -236,16 +246,15 @@ sunbeam>SELECT c.cname CUSTOMER_NAME, c.cpin PIN, ci.city CITY FROM customers c 
 
 9. Display cities, number of orders and total amount of orders from cities in asc order of city name.
 
-sunbeam>SELECT ci.city CITY, COUNT(o.cid) NO_OF_ORDERS, SUM(o.oamount) TOTAL_AMOUNT FROM city_pin ci LEFT JOIN customers c ON ci.pin = c.cpin INNER JOIN orders o ON o.cid = c.cid GROUP BY ci.city;
+sunbeam>SELECT ci.city CITY, COUNT(o.cid) NO_OF_ORDERS, SUM(o.oamount) TOTAL_AMOUNT FROM city_pin ci LEFT JOIN customers c ON ci.pin = c.cpin INNER JOIN orders o ON o.cid = c.cid GROUP BY ci.city ORDER BY ci.city;
 +--------+--------------+--------------+
 | CITY   | NO_OF_ORDERS | TOTAL_AMOUNT |
 +--------+--------------+--------------+
+| Karad  |            3 |       630.00 |
 | Mumbai |            2 |       600.00 |
 | Pune   |            3 |       240.00 |
-| Karad  |            3 |       630.00 |
 +--------+--------------+--------------+
-3 rows in set (0.00 sec)
-
+3 rows in set (0.14 sec)
 
 
 
