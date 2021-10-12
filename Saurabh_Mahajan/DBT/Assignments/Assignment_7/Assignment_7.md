@@ -310,7 +310,16 @@ D3_56588>SELECT onum FROM orders WHERE amt < ANY(SELECT amt FROM orders WHERE cn
 
 
 
-14. Select those customers whose rating are higher than every customer in Paris.
-
-D3_56588>SELECT cname FROM customers WHERE rating > ANY(SELECT rating FROM customers WHERE city = 'Paris');
-Empty set (0.00 sec)
+D3_56588>SELECT cname FROM customers WHERE rating > ALL(SELECT rating FROM customers WHERE city = 'Paris');
++----------+
+| cname    |
++----------+
+| Hoffman  |
+| Giovanni |
+| Liu      |
+| Grass    |
+| Clemens  |
+| Cisneros |
+| Pereira  |
++----------+
+7 rows in set (0.01 sec)
