@@ -9,30 +9,16 @@ D3_56656>SELECT * FROM orders WHERE cnum=(SELECT cnum FROM customers WHERE cname
 +------+---------+------------+------+------+
 
 2. Write a query that produces the names and ratings of all customers who have above average(amt) orders.
-D3_56656>SELECT c.cname,c.rating FROM customers c INNER JOIN orders o WHERE o.amt>(SELECT AVG(amt) FROM orders) ORDER BY c.cname;
+D3_56656>SELECT DISTINCT c.cname,c.rating FROM customers c INNER JOIN orders o WHERE o.amt>(SELECT AVG(amt) FROM orders) ORDER BY c.cname;
 +----------+--------+
 | cname    | rating |
 +----------+--------+
 | Cisneros |    300 |
-| Cisneros |    300 |
-| Cisneros |    300 |
-| Clemens  |    100 |
-| Clemens  |    100 |
 | Clemens  |    100 |
 | Giovanni |    200 |
-| Giovanni |    200 |
-| Giovanni |    200 |
-| Grass    |    300 |
-| Grass    |    300 |
 | Grass    |    300 |
 | Hoffman  |    100 |
-| Hoffman  |    100 |
-| Hoffman  |    100 |
 | Liu      |    200 |
-| Liu      |    200 |
-| Liu      |    200 |
-| Pereira  |    100 |
-| Pereira  |    100 |
 | Pereira  |    100 |
 +----------+--------+
 
