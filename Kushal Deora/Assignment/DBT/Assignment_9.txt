@@ -1,0 +1,24 @@
+1. Create an index that will enable a user to pull orders for ‘1990-10-03’ out of the Orders table quickly.
+D3_56656>CREATE INDEX order_date ON orders(odate);
+
+
+2. If the Orders table has already been created, how can you force the onum field to be unique (assume all current values are unique)?
+D3_56656>CREATE UNIQUE INDEX order_num ON orders(onum);
+
+3. Create an index that would permit salesperson to retrieve his orders.
+D3_56656>CREATE  INDEX order_snum ON orders(snum);
+
+4. Create an index to speed up searching order on a given date by given customer.
+D3_56656>CREATE  INDEX order_cnum_odate ON orders(cnum,odate);
+
+5. Write a SQL statement to add a primary key for the columns SNUM in the SALESPEOPLE table.
+D3_56656>ALTER TABLE salespeople MODIFY COLUMN snum INT PRIMARY KEY;
+
+6. Write a SQL statement to add a primary key for the columns CNUM in the CUSTOMERS table.
+
+D3_56656>ALTER TABLE customers MODIFY COLUMN cnum INT PRIMARY KEY;
+
+
+7. Create DEPT table with deptno as Primary Key.
+
+D3_56656>CREATE TABLE dept(deptno INT PRIMARY KEY,dname CHAR(30) NOT NULL UNIQUE);
