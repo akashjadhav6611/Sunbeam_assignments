@@ -1,0 +1,15 @@
+DROP PROCEDURE IF EXISTS comp;
+
+DELIMITER $$
+
+CREATE PROCEDURE comp(A INT)
+BEGIN
+	DECLARE sq INT;
+    DECLARE cu INT;
+	SET sq = A * A;
+	SELECT A*A*A INTO cu;
+    INSERT INTO temp VALUES (A, sq, cu);
+END;
+$$
+
+DELIMITER ;
