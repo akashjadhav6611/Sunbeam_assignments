@@ -1,0 +1,17 @@
+DROP PROCEDURE IF EXISTS changemid;
+
+DELIMITER $$
+
+CREATE PROCEDURE changemid(dept_id INT)
+BEGIN
+    DECLARE emp_id INT;
+
+    SELECT EMPLOYEE_ID FROM employees WHERE DEPARTMENT_ID = dept_id AND SALARY = (SELECT MIN(SALARY) FROM employees WHERE DEPARTMENT_ID = dept_id) 
+    LIMIT 1 INTO emp_id;
+
+    UPDATE departments SET MANAGER_ID = emp_id WHERE DEPARTMENT_ID = dept_id;
+    
+END;
+$$
+
+DELIMITER ;
