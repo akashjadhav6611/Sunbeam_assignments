@@ -1,0 +1,374 @@
+                            ~~~Use ALTER statement to solve following problems.~~~
+
+
+SOLUTION 1 :-
+
+d1_56474>ALTER TABLE EMP rename EMPLOYEE;
+Query OK, 0 rows affected (0.04 sec)
+
+d1_56474>SHOW TABLES;
++---------------------+
+| Tables_in_classwork |
++---------------------+
+| bonus               |
+| books               |
+| dept                |
+| dummy               |
+| employee            |
+| result              |
+| salgrade            |
++---------------------+
+7 rows in set (0.05 sec)
+
+
+SOLUTION 2 :-
+
+d1_56474>ALTER TABLE DEPT ADD COLUMN region CHAR(20);
+Query OK, 0 rows affected (0.12 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+d1_56474>SELECT * FROM DEPT;
++--------+------------+----------+--------+
+| deptno | dname      | loc      | region |
++--------+------------+----------+--------+
+|     10 | ACCOUNTING | NEW YORK | NULL   |
+|     20 | RESEARCH   | DALLAS   | NULL   |
+|     30 | SALES      | CHICAGO  | NULL   |
+|     40 | OPERATIONS | BOSTON   | NULL   |
++--------+------------+----------+--------+
+4 rows in set (0.00 sec)
+
+
+SOLUTION 3 :-
+
+d1_56474>select * from dummy;
++-------+
+| dummy |
++-------+
+|     0 |
++-------+
+1 row in set (0.02 sec)
+
+d1_56474>ALTER TABLE dummy ADD dummy_id INT FIRST;
+Query OK, 0 rows affected (0.23 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+d1_56474>SELECT * FROM dummy;
++----------+-------+
+| dummy_id | dummy |
++----------+-------+
+|     NULL |     0 |
++----------+-------+
+1 row in set (0.00 sec)
+
+
+SOLUTION 4 :-
+
+d1_56474>ALTER TABLE EMPLOYEE MODIFY SAL FLOAT;
+Query OK, 16 rows affected (0.12 sec)
+Records: 16  Duplicates: 0  Warnings: 0
+
+d1_56474>DESCRIBE EMPLOYEE;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| empno  | int          | YES  |     | NULL    |       |
+| ename  | varchar(40)  | YES  |     | NULL    |       |
+| job    | varchar(40)  | YES  |     | NULL    |       |
+| mgr    | int          | YES  |     | NULL    |       |
+| hire   | date         | YES  |     | NULL    |       |
+| SAL    | float        | YES  |     | NULL    |       |
+| comm   | decimal(8,2) | YES  |     | NULL    |       |
+| deptno | int          | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+8 rows in set (0.02 sec)
+
+
+SOLUTION 5 :-
+
+d1_56474>SELECT * FROM DEPT;
++--------+------------+----------+--------+
+| deptno | dname      | loc      | region |
++--------+------------+----------+--------+
+|     10 | ACCOUNTING | NEW YORK | NULL   |
+|     20 | RESEARCH   | DALLAS   | NULL   |
+|     30 | SALES      | CHICAGO  | NULL   |
+|     40 | OPERATIONS | BOSTON   | NULL   |
++--------+------------+----------+--------+
+4 rows in set (0.01 sec)
+
+d1_56474>ALTER TABLE DEPT DROP COLUMN region;
+Query OK, 0 rows affected (0.17 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+d1_56474>SELECT * FROM DEPT;
++--------+------------+----------+
+| deptno | dname      | loc      |
++--------+------------+----------+
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
++--------+------------+----------+
+4 rows in set (0.00 sec)
+
+
+
+                                                ~~~PL-SQL~~~
+
+SOLUTION 1 :-
+``````````````````````````````````````````````````
+DROP PROCEDURE IF EXISTS periAreaRec;
+
+DELIMITER $$
+
+CREATE PROCEDURE periAreaRec(L INT, W INT)
+BEGIN
+    DECLARE area INT;
+    DECLARE peri INT;
+
+    SELECT L * W INTO area;
+    SET peri = 2 * (L+W);
+    SELECT L AS len, W AS wid, area, peri AS perimeter;
+END;
+$$
+
+DELIMITER ;
+```````````````````````````````````````````````````
+sunbeam>CALL periAreaRec(10, 20);
++------+------+------+-----------+
+| len  | wid  | area | perimeter |
++------+------+------+-----------+
+|   10 |   20 |  200 |        60 |
++------+------+------+-----------+
+1 row in set (0.01 sec)
+
+SOLUTION 2 :-
+
+sunbeam>CREATE TABLE temp (val INT, square INT, cubee INT);
+Query OK, 0 rows affected (0.15 sec)
+
+sunbeam>SELECT * FROM TEMP;
+Empty set (0.01 sec)
+
+````````````````````````````````````````
+DROP PROCEDURE IF EXISTS sqaCube;
+
+DELIMITER $$
+
+CREATE PROCEDURE sqaCube()
+BEGIN
+    DECLARE num INT DEFAULT 5;
+    DECLARE sq INT;
+    DECLARE cu INT;
+    SET sq = num * num;
+    SET cu = num * num * num;
+
+    INSERT INTO temp VALUES (num, sq, cu);
+END;
+$$
+
+DELIMITER ;
+````````````````````````````````````````
+sunbeam>CALL sqaCube();
+Query OK, 1 row affected (0.01 sec)
+
+sunbeam>SELECT * FROM TEMP;
++------+--------+-------+
+| val  | square | cubee |
++------+--------+-------+
+|    5 |     25 |   125 |
++------+--------+-------+
+1 row in set (0.00 sec)
+
+
+SOLUTION 3 :-
+
+``````````````````````````````````````````````````````````````````````
+DROP PROCEDURE IF EXISTS celFahren;
+
+DELIMITER $$
+
+CREATE PROCEDURE celFahren(C FLOAT, F FLOAT)
+BEGIN
+    DECLARE cel_to_fah FLOAT;
+    DECLARE fah_to_cel FLOAT;
+    SET cel_to_fah = 9/5 * C + 32;
+    SET fah_to_cel = (F-32) * 5/9;
+    SELECT C AS Celsius, cel_to_fah, F AS Fahrenheit, fah_to_cel;
+END;
+$$
+
+DELIMITER ;
+
+```````````````````````````````````````````````````````````````````````
+sunbeam>SOURCE C:/Users/user/OneDrive/Desktop/DOT_SQL_FILES/celFahren.sql
+Query OK, 0 rows affected, 1 warning (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+sunbeam>CALL celFahren(37, 100);
++---------+------------+------------+------------+
+| Celsius | cel_to_fah | Fahrenheit | fah_to_cel |
++---------+------------+------------+------------+
+|      37 |       98.6 |        100 |    37.7778 |
++---------+------------+------------+------------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+sunbeam>CALL celFahren(37, 98.6);
++---------+------------+------------+------------+
+| Celsius | cel_to_fah | Fahrenheit | fah_to_cel |
++---------+------------+------------+------------+
+|      37 |       98.6 |       98.6 |         37 |
++---------+------------+------------+------------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+
+SOLUTION 4 :-
+
+```````````````````````````````````````````````
+DROP PROCEDURE IF EXISTS inchYaFoot;
+
+DELIMITER $$
+
+CREATE PROCEDURE inchYaFoot(num INT)
+BEGIN
+    DECLARE yard INT;
+    DECLARE foot INT;
+    DECLARE inch INT;
+    SET yard = FLOOR(num / 36);
+    SET foot = FLOOR(num / 12) - yard * 3;
+    SET inch = num % 12;
+    SELECT num, yard, foot, inch;
+END;
+$$
+
+DELIMITER ;
+````````````````````````````````````````````````
+sunbeam>SOURCE C:/Users/user/OneDrive/Desktop/DOT_SQL_FILES/inchYaFoot.sql
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+sunbeam>CALL inchYaFoot(126);
++------+------+------+------+
+| num  | yard | foot | inch |
++------+------+------+------+
+|  126 |    3 |    1 |    6 |
++------+------+------+------+
+1 row in set (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+sunbeam>CALL inchYaFoot(124);
++------+------+------+------+
+| num  | yard | foot | inch |
++------+------+------+------+
+|  124 |    3 |    1 |    4 |
++------+------+------+------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+
+SOLUTION 5 :-
+
+````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
+DROP PROCEDURE IF EXISTS departMang;
+
+DELIMITER $$
+
+CREATE PROCEDURE departMang(dept_id INT)
+BEGIN
+    DECLARE emp_id INT;
+
+    SELECT employee_id FROM employees WHERE department_id = dept_id AND salary = (SELECT MIN(salary) FROM employees WHERE department_id = dept_id) LIMIT 1 INTO emp_id;
+
+    UPDATE departments SET manager_id = emp_id WHERE department_id = dept_id;
+END;
+$$
+
+DELIMITER ;
+````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
+sunbeam>SELECT * FROM departments;
++---------------+----------------------+------------+-------------+
+| DEPARTMENT_ID | DEPARTMENT_NAME      | MANAGER_ID | LOCATION_ID |
++---------------+----------------------+------------+-------------+
+|            10 | Administration       |        200 |        1700 |
+|            20 | Marketing            |        201 |        1800 |
+|            30 | Purchasing           |        114 |        1700 |
+|            40 | Human Resources      |        203 |        2400 |
+|            50 | Shipping             |        121 |        1500 |
+|            60 | IT                   |        103 |        1400 |
+|            70 | Public Relations     |        204 |        2700 |
+|            80 | Sales                |        145 |        2500 |
+|            90 | Executive            |        100 |        1700 |
+|           100 | Finance              |        108 |        1700 |
+|           110 | Accounting           |        205 |        1700 |
+|           120 | Treasury             |          0 |        1700 |
+|           130 | Corporate Tax        |          0 |        1700 |
+|           140 | Control And Credit   |          0 |        1700 |
+|           150 | Shareholder Services |          0 |        1700 |
+|           160 | Benefits             |          0 |        1700 |
+|           170 | Manufacturing        |          0 |        1700 |
+|           180 | Construction         |          0 |        1700 |
+|           190 | Contracting          |          0 |        1700 |
+|           200 | Operations           |          0 |        1700 |
+|           210 | IT Support           |          0 |        1700 |
+|           220 | NOC                  |          0 |        1700 |
+|           230 | IT Helpdesk          |          0 |        1700 |
+|           240 | Government Sales     |          0 |        1700 |
+|           250 | Retail Sales         |          0 |        1700 |
+|           260 | Recruiting           |          0 |        1700 |
+|           270 | Payroll              |          0 |        1700 |
++---------------+----------------------+------------+-------------+
+27 rows in set (0.00 sec)
+
+sunbeam>SOURCE C:/Users/user/OneDrive/Desktop/DOT_SQL_FILES/departMang.sql
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+sunbeam>CALL departMang(160);
+Query OK, 1 row affected (0.03 sec)
+
+sunbeam>CALL departMang(90);
+Query OK, 1 row affected (0.00 sec)
+
+sunbeam>SELECT * FROM departments;
++---------------+----------------------+------------+-------------+
+| DEPARTMENT_ID | DEPARTMENT_NAME      | MANAGER_ID | LOCATION_ID |
++---------------+----------------------+------------+-------------+
+|            10 | Administration       |        200 |        1700 |
+|            20 | Marketing            |        201 |        1800 |
+|            30 | Purchasing           |        114 |        1700 |
+|            40 | Human Resources      |        203 |        2400 |
+|            50 | Shipping             |        121 |        1500 |
+|            60 | IT                   |        103 |        1400 |
+|            70 | Public Relations     |        204 |        2700 |
+|            80 | Sales                |        145 |        2500 |
+|            90 | Executive            |        101 |        1700 |
+|           100 | Finance              |        108 |        1700 |
+|           110 | Accounting           |        205 |        1700 |
+|           120 | Treasury             |          0 |        1700 |
+|           130 | Corporate Tax        |          0 |        1700 |
+|           140 | Control And Credit   |          0 |        1700 |
+|           150 | Shareholder Services |          0 |        1700 |
+|           160 | Benefits             |       NULL |        1700 |
+|           170 | Manufacturing        |          0 |        1700 |
+|           180 | Construction         |          0 |        1700 |
+|           190 | Contracting          |          0 |        1700 |
+|           200 | Operations           |          0 |        1700 |
+|           210 | IT Support           |          0 |        1700 |
+|           220 | NOC                  |          0 |        1700 |
+|           230 | IT Helpdesk          |          0 |        1700 |
+|           240 | Government Sales     |          0 |        1700 |
+|           250 | Retail Sales         |          0 |        1700 |
+|           260 | Recruiting           |          0 |        1700 |
+|           270 | Payroll              |          0 |        1700 |
++---------------+----------------------+------------+-------------+
+27 rows in set (0.00 sec)
