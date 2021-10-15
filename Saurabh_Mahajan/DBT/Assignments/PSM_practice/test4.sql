@@ -1,0 +1,17 @@
+DROP PROCEDURE IF EXISTS REVERSS;
+  
+DELIMITER $$  
+CREATE PROCEDURE REVERSS(NUM INT) 
+BEGIN 
+    DECLARE v_REV INT DEFAULT 0; 
+    DECLARE M INT ; 
+        WHILE NUM>0 DO 
+            SET M= MOD(NUM,10); 
+            SET v_REV=(v_REV * 10)+M; 
+            SET NUM=(NUM/10); 
+        END WHILE;   
+    SELECT v_REV; 
+END;  
+$$ 
+
+DELIMITER ;
