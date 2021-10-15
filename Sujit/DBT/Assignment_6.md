@@ -72,7 +72,7 @@ d2_56660>SELECT o.onum,s.sname,c.rating, s.comm*o.amt AS COMMISSION FROM orders 
 same city. Exclude combinations of salespeople with themselves as well as 
 duplicate rows with the order reversed
 
-d2_56660>SELECT s.sname,s1.sname,s.city FROM salespeople s INNER JOIN salespeople s1 ON s.city=s1.city AND s.sname!=s1.sname;
+d2_56660>SELECT s.sname,s1.sname,s.city FROM salespeople s INNER JOIN salespeople s1 ON s.city=s1.city AND s.sname < s1.sname;
 +--------+--------+--------+
 | sname  | sname  | city   |
 +--------+--------+--------+
@@ -119,7 +119,7 @@ d2_56660>SELECT D.DEPARTMENT_NAME,E.FIRST_NAME FROM departments D LEFT JOIN empl
 
 7. Display department name, manager name, and city.
 
-d2_56660>SELECT D.DEPARTMENT_NAME,CONCAT(E.FIRST_NAME+E.LAST_NAME) AS MANAGER_NAME,L.CITY FROM departments D LEFT JOIN employees E ON D.MANAGER_ID=E.EMPLOYEE_ID INNER JOIN locations L ON D.LOCATION_ID=L.LOCATION_ID;
+d2_56660>SELECT D.DEPARTMENT_NAME,E.FIRST_NAME,L.CITY FROM departments D LEFT JOIN employees E ON D.MANAGER_ID=E.EMPLOYEE_ID LEFT JOIN locations L ON D.LOCATION_ID=L.LOCATION_ID;
 +----------------------+--------------+---------------------+
 | DEPARTMENT_NAME      | MANAGER_NAME | CITY                |
 +----------------------+--------------+---------------------+
@@ -156,7 +156,7 @@ d2_56660>SELECT D.DEPARTMENT_NAME,CONCAT(E.FIRST_NAME+E.LAST_NAME) AS MANAGER_NA
 8. Display country name, city, and department name.
 
 
-d2_56660>SELECT C.COUNTRY_NAME,L.CITY,D.DEPARTMENT_NAME FROM countries C LEFT JOIN locations L ON C.COUNTRY_ID=L.COUNTRY_ID
+d2_56660>SELECT C.COUNTRY_NAME,L.CITY,D.DEPARTMENT_NAME FROM countries C RIGHT JOIN locations L ON C.COUNTRY_ID=L.COUNTRY_ID
     -> INNER JOIN departments D ON L.LOCATION_ID=D.LOCATION_ID;
 +--------------------------+---------------------+----------------------+
 | COUNTRY_NAME             | CITY                | DEPARTMENT_NAME      |
