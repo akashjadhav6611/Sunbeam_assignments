@@ -111,7 +111,7 @@ sunbeam>SELECT * FROM orders WHERE cid = (SELECT cid FROM customers WHERE cname 
 
 
 
-sunbeam>UPDATE orders SET ostatus = 'delivered' WHERE cid = (SELECT cid FROM customers WHERE cname = 'John') ORDER BY odate LIMIT 1;
+sunbeam>UPDATE orders SET ostatus = 'delivered' WHERE cid = (SELECT cid FROM customers WHERE cname = 'John') ORDER BY odate DESC LIMIT 1;
 Query OK, 1 row affected (0.16 sec)
 Rows matched: 1  Changed: 1  Warnings: 0
 
