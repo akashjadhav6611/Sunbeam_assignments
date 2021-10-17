@@ -16,16 +16,7 @@ public class Average {
                 num2 = sc.nextDouble();
                 System.out.println("Average : "+(num1+num2)/2);
             }
-            else
-            {
-                System.out.println(sc.nextDouble()+" is not a double number");
-            }
         }
-        else
-        {
-            System.out.println(sc.nextDouble()+" is not a double number");
-        }
-        
     }
 
 }
