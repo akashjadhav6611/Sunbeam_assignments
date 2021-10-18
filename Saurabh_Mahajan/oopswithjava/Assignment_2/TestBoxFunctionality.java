@@ -14,8 +14,8 @@ public class TestBoxFunctionality {
         Box b2;
         b2 = new Box(sc.nextDouble(),sc.next());
 
-        System.out.println("\nBox b1 :"+b1.getBoxDimensions());
-        System.out.println("\nBox b2 :"+b2.getBoxDimensions());
+        System.out.println("\nBox b1 : "+b1.getBoxDimensions());
+        System.out.println("\nBox b2 : "+b2.getBoxDimensions());
 
         System.out.println("\nVolume of b1 : " + b1.getBoxVolume()+"\nVolume of b2 : " + b2.getBoxVolume());
         System.out.println("\nEquality check of b1 and b2 : "+b1.isEqual(b2));
