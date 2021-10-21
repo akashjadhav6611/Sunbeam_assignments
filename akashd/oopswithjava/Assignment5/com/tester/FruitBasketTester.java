@@ -52,18 +52,19 @@ public class FruitBasketTester {
 				break;
 			case 4: // Display all the names of fruits in the basket
 				for(Fruit f : fruitBasket) {
+					if(f != null)
 					System.out.println(f.getName());
 				}
 				break;
 			case 5: // Display color, weight taste of all fresh fruits
 				for(Fruit f : fruitBasket) {
-					if(f.getIsFresh())
+					if(f.getIsFresh() && f != null)
 						System.out.println(f.getColor() + ", " + f.getWeight() + ", " + f.taste());
 				}
 				break;
 			case 6: // Display tastes of all stale fruits
 				for(Fruit f : fruitBasket) {
-					if(!f.getIsFresh())
+					if(!(f.getIsFresh()) && f!= null )
 						System.out.println(f.taste());
 				}
 				break;
@@ -77,13 +78,14 @@ public class FruitBasketTester {
 				break;
 			case 8: // Mark all sour fruits as stale
 				for(Fruit f : fruitBasket) {
-					if(f.taste().equals("Sour"))
+					if(f != null && f.taste().equals("Sour"))
 						f.setIsFresh(false);
 				}
 				break;
 			case 9: // test: Display all fruits
 				for(Fruit f : fruitBasket) {
-					System.out.println(f);
+					if(f != null)
+						System.out.println(f);
 				}
 				break;
 			case 10: // exit
