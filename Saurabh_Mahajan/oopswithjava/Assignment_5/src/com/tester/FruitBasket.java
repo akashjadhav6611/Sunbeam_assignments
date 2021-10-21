@@ -60,24 +60,28 @@ public class FruitBasket
 					break;
 				
 				case 4:
+					System.out.println("Names of all fruits in the basket.");
 					for(Fruit f : fruits)
 						if(f != null)
 							System.out.println(f.getName());
 					break;
 					
 				case 5:
+					System.out.println("Name,color,weight , taste of all fresh fruits in the basket.");
 					for(Fruit f : fruits)
 						if(f.isFresh() && f != null)
 							System.out.println(f+" Taste : "+f.taste());
 					break;
 					
 				case 6:
+					System.out.println("Stale(not fresh) fruits in the basket.");
 					for(Fruit f : fruits)
 						if(!(f.isFresh()) && f != null)
 							System.out.println(f.getName()+" - "+f.taste());
 					break;
 					
 				case 7:
+					System.out.println("Enter index : ");
 					int index = sc.nextInt();
 					if(index < fruits.length)
 					{
@@ -95,6 +99,7 @@ public class FruitBasket
 					break;
 					
 				case 9:
+					System.out.println("All fruits ( fresh and stale)");
 					for(Fruit f : fruits)
 						if(f != null)
 							System.out.println(f);
@@ -110,5 +115,6 @@ public class FruitBasket
 					break;
 			}
 		}
+		sc.close();
 	}
 }
