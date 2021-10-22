@@ -1,0 +1,38 @@
+1. Write a SQL statement to rename the table EMP to EMPLOYEE.
+D3_56656>ALTER TABLE emp RENAME Employee;
+Query OK, 0 rows affected (0.04 sec)
+
+2. Write a SQL statement to add a column region to the table DEPT.
+D3_56656>ALTER TABLE dept ADD COLUMN region VARCHAR(50);
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+3. Write a SQL statement to add a dummy_ID as the first column of the table DUMMY.
+D3_56656>ALTER TABLE Dummy ADD COLUMN dummy_id INT;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+4. Write a SQL statement to change the data type of the column sal to float in the table EMP.
+
+D3_56656>ALTER TABLE employee MODIFY sal FLOAT;
+Query OK, 14 rows affected (0.10 sec)
+Records: 14  Duplicates: 0  Warnings:
+
+5. Write a SQL statement to drop the column region from the table DEPT.
+D3_56656>ALTER TABLE dept DROP COLUMN region;
+Query OK, 0 rows affected (0.08 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+
+                                                    
+                                             PL-SQL
+
+1. Write a procedure that computes the perimeter and the area of a rectangle. Define your own values for the length and width. (Assuming that L and W are the length and width of the rectangle, Perimeter = 2*(L+W) and Area = L*W.
+
+2. Write a procedure that declares an integer variable called num, assigns a value to it, and computes and inserts into the temp table the value of the variable itself, its square, and its cube.
+
+3. Create a procedure to Convert a temperature in Fahrenheit (F) to its equivalent in Celsius (C) and vice versa. The required formulae are:- C= (F-32)*5/9 F= 9/5*C + 32
+
+4. Create a procedure to Convert a number of inches into yards, feet, and inches. For example, 124 inches equals 3 yards, 1 foot, and 4 inches.
+
+5. Create a procedure that takes department ID and changes the manager ID for the department to the employee in the department with lowest salary.
