@@ -1,0 +1,20 @@
+DROP PROCEDURE IF EXISTS cf;
+
+DELIMITER $$
+
+CREATE PROCEDURE cf(acc CHAR(20),temp FLOAT)
+BEGIN
+DECLARE tp FLOAT;
+IF acc='C' THEN
+SET tp= (temp-32)*(5/9);
+SELECT tp AS 'Temperature(C)';
+ELSEIF acc='F' THEN
+SET tp= ((9/5)*temp)+32;
+SELECT tp AS 'Temperature(F)';
+ELSE 
+SELECT "WRONG INPUT";
+END IF;
+
+END;
+$$
+DELIMITER ;
