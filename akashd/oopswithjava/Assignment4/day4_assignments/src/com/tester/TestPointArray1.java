@@ -62,7 +62,7 @@ public class TestPointArray1 {
 				exit = true;
 				break;
 			default:
-				System.out.println("");
+				System.out.println("Invalid choice!");
 			}
 		}
 		
