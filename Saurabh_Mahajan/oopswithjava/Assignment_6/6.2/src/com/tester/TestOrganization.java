@@ -48,14 +48,15 @@ public class TestOrganization
 					if(e != null)
 					{
 						System.out.println(e.toString());
+						System.out.println("Net Salary : "+e.netSalary());
 						if(e instanceof Mgr)
 						{
-							System.out.println("Net Salary : "+((Mgr)e).netSalary());
+							//System.out.println("Net Salary : "+((Mgr)e).netSalary());
 							System.out.println("Performance Bonus : "+((Mgr)e).getPerformanceBonus());
 						}
 						else if(e instanceof Worker)
 						{
-							System.out.println("Net Salary : "+((Worker)e).netSalary());
+							//System.out.println("Net Salary : "+((Worker)e).netSalary());
 							System.out.println("Hourly Rate : "+((Worker)e).getHourlyRate());
 						}
 						else 
