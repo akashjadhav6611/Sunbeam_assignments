@@ -1,6 +1,6 @@
 package com.app.org;
 
-public class Emp 
+public abstract class Emp 
 {
 	private static int count = 0;
 	private int id;
@@ -35,5 +35,7 @@ public class Emp
 	public void setBasic(double basic) {
 		this.basic = basic;
 	}
+	
+	public abstract double netSalary();
 
 }

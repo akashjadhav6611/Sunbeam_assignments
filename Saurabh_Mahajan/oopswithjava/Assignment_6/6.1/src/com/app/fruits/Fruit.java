@@ -1,6 +1,6 @@
 package com.app.fruits;
 
-public class Fruit 
+public abstract class Fruit 
 {
 	private String name;
 	private String color;
@@ -45,11 +45,7 @@ public class Fruit
 		this.isFresh = isFresh;
 	}
 
-	public String taste()
-	{
-		return "no specific taste";
-	}
-	
+	public abstract String taste();
 	
 	
 
