@@ -28,7 +28,7 @@ public class GrowableStack implements Stack
 	
 	private Employee[] resizeArray()
 	{
-		Employee[] arr = new Employee[Stack.STACK_SIZE * 2];
+		Employee[] arr = new Employee[emp.length * 2];
 		for(int i = 0 ; i < emp.length ; i++)
 		{
 			arr[i] = emp[i];
