@@ -2,7 +2,6 @@ package tester;
 
 import java.util.Scanner;
 
-import com.app.vehicles.Color;
 import com.app.vehicles.Vehicle;
 import static utils.ValidationRules.*;
 
@@ -44,6 +43,7 @@ public class Showroom {
 								System.out.println(v);
 						break;
 					case 10:
+						System.out.println("Exited the program !!!");
 						exit = true;
 						break;
 					}

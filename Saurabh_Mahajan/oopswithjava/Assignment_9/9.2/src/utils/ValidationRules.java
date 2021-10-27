@@ -56,7 +56,7 @@ public class ValidationRules {
 		return Category.valueOf(categoryName.toUpperCase());
 	}
 	
-	public static Color parseAndValidateColor(String colorName) 
+	public static Color parseAndValidateColor(String colorName) throws VehicleHandlingException 
 	{
 	        
 	        Color c = null;
