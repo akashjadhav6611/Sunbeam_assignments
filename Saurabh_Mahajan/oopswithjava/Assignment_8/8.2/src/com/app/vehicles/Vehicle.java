@@ -1,7 +1,6 @@
 package com.app.vehicles;
 
 import java.util.Date;
-import com.validation.*;
 
 public class Vehicle
 {

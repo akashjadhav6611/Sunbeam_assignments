@@ -2,13 +2,10 @@ package com.tester;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Scanner;
 
 import com.app.vehicles.*;
-import com.exception.DuplicateChasisNoException;
-import com.exception.InvalidCategoryException;
-import com.exception.ManufactureDateOutOfRangeException;
+import com.exception.*;
 import com.validation.ValidateVehicle;
 
 public class TestVehicle 
