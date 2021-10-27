@@ -10,18 +10,19 @@ public class FixedStack implements Stack
 		top = -1;
 		emp = new Employee[Stack.STACK_SIZE];
 	}
+	
+	public boolean isStackFull()
+	{
+		if(top == emp.length - 1)
+			return true;
+		else
+			return false;
+	}
 
 	@Override
 	public void push(Employee temp)
 	{
-		if(top == emp.length -1)
-		{
-			System.out.println("Stack is full !!!");
-		}
-		else
-		{
 			emp[++top] = temp;
-		}
 	}
 
 	@Override
