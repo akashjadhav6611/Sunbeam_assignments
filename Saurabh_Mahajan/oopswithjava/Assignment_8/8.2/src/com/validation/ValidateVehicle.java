@@ -11,7 +11,7 @@ public class ValidateVehicle
 {
 	
 	
-	public static String validateDate(String temp) throws ManufactureDateOutOfRangeException, ParseException
+	public static void validateDate(String temp) throws ManufactureDateOutOfRangeException, ParseException
 	{
 		Date start = (Date)(new SimpleDateFormat("dd-MM-yyyy")).parse("01-04-2021");
 		Date end = (Date)(new SimpleDateFormat("dd-MM-yyyy")).parse("31-03-2022");
@@ -25,10 +25,9 @@ public class ValidateVehicle
 		{
 			throw new ManufactureDateOutOfRangeException("After financial Year"+end.toString()+" !!!");
 		}
-		return temp;
 	}
 	
-	public static int validateChasisNo(int temp, Vehicle[] v) throws DuplicateChasisNoException
+	public static void validateChasisNo(int temp, Vehicle[] v) throws DuplicateChasisNoException
 	{
 		boolean found = false;
 		for(Vehicle vehicle : v) {
@@ -43,16 +42,14 @@ public class ValidateVehicle
 			throw new DuplicateChasisNoException("Duplicate Chasis No !!!");
 		}
 		
-		return temp;
 	}
 	
-	public static String validateCategory(String temp) throws InvalidCategoryException
+	public static void validateCategory(String temp) throws InvalidCategoryException
 	{
 		if(!(temp.equalsIgnoreCase("Diesel") || temp.equalsIgnoreCase("EV") || temp.equalsIgnoreCase("Hybrid") || temp.equalsIgnoreCase("CNG") || temp.equalsIgnoreCase("Petrol")))
 		{
 			throw new InvalidCategoryException("Category Invalid !!!");
 		}
-		return temp;
 	}
 	
 }

@@ -33,16 +33,19 @@ public class TestVehicle
 					case 1:
 						System.out.println("Enter vehicle details:");
 						System.out.println("Chassis Number: ");
-						int chasisno = ValidateVehicle.validateChasisNo(scan.nextInt(), vehicle);
+						int chasisno = scan.nextInt();
+						ValidateVehicle.validateChasisNo(chasisno, vehicle);
 						System.out.println("Color : ");
 						String color = scan.next();
 						System.out.println("Price : ");
 						Double price = scan.nextDouble();
 						System.out.println("Manufacutre date: dd-MM-yyyy");
-						String mfgDate = ValidateVehicle.validateDate(scan.next());
+						String mfgDate = scan.next();
+						ValidateVehicle.validateDate(mfgDate);
 						System.out.println("Category : ");
-						String category = ValidateVehicle.validateCategory(scan.next());
-						vehicle[++counter] = new Vehicle(chasisno, color, category, price, sdf.parse(mfgDate));
+						String category = scan.next();
+						ValidateVehicle.validateCategory(category);
+						vehicle[counter++] = new Vehicle(chasisno, color, category, price, sdf.parse(mfgDate));
 						break;
 					
 					case 2:
