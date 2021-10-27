@@ -29,10 +29,6 @@ public class Vehicle
 		return "Vehicle [chasisNo=" + chasisNo + ", color=" + color + ", category=" + category + ", price=" + price
 				+ ", manufactureDate=" + manufactureDate + "]";
 	}
-
-	public boolean equals(Object v) {
-		return this.chasisNo == ((Vehicle)v).chasisNo;
-	}
 	
 	public int getChasisNo() {
 		return chasisNo;
