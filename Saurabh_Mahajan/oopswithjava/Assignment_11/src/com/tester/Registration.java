@@ -1,9 +1,11 @@
 package com.tester;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 
 import com.app.details.Customer;
+import com.app.details.Plan;
 import com.exception.CustomerHandlingException;
 import static com.utils.ValidationRules.*;
 import static com.utils.CollectionUtils.*;
@@ -71,40 +73,34 @@ public class Registration
 							break;
 							
 						case 6:
-							System.out.println("Enter email id and password : ");
-							Customer c6 = customerLogin(scan.next(), scan.next(), customer);
-							int i6 = customer.indexOf(c6);
-							System.out.println(customer.remove(i6));
+							System.out.println("Enter email id : ");
+							System.out.println("Removal status : "+customer.remove(new Customer(scan.next())));
 							System.out.println("Customer has successfully un-subscribed");
 							break;
 							
 						case 7:
 							System.out.println("Enter plan : ");
-							ArrayList<Customer> arr7 = customerByPlan(scan.next(), customer);
-							if(!arr7.isEmpty())
-								for(Customer c7 : arr7)
+							Plan p7 = verifyPlan(scan.next());
+							for(Customer c7 : customer)
+								if(c7.getPlan() == p7)
 									System.out.println(c7.getName());
-							
-							else
-								throw new CustomerHandlingException("No customers applied for this plan !!!");
 							break;
 							
 						case 8:
 							System.out.println("Enter date : dd-MM-yyyy");
-							ArrayList<Customer> arr8 = customerAfterDate(scan.next(), customer);
-							if(!arr8.isEmpty())
-								displayArrayList(arr8);
-							else
-								throw new CustomerHandlingException("No customer in the database !!!");
+							Date d8 = verifyDate(scan.next());
+							for(Customer c8 : customer)
+								if(c8.getDate().after(d8))
+									System.out.println(c8);
 							break;
 							
 						case 9:
 							System.out.println("Enter Location");
-							ArrayList<Customer> arr9 = customerByLocation(scan.next(), customer);
-							if(!arr9.isEmpty())
-								displayArrayList(arr9);
-							else
-								throw new CustomerHandlingException("No customer in the database from this location !!!");
+							String l9 = scan.next();
+							for(Customer c9 : customer)
+								if(c9.getAdhaar() != null)
+									if(l9.equals(c9.getAdhaar().getLocation()))
+										System.out.println(c9);
 							break;
 							
 						case 10:

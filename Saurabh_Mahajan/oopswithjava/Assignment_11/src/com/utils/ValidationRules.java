@@ -124,43 +124,5 @@ public class ValidationRules
 		
 		return c;
 	}
-	
-	public static ArrayList<Customer> customerByPlan(String temp, ArrayList<Customer> customer) throws CustomerHandlingException
-	{
-		ArrayList<Customer> c = new ArrayList<>();
-		Plan p = verifyPlan(temp);
-		
-		for(Customer ctm : customer)
-			if(p.equals(ctm.getPlan()))
-				c.add(ctm);
-		
-		return c;
-	}
-	
-	public static ArrayList<Customer> customerAfterDate(String temp, ArrayList<Customer> customer) 
-			throws CustomerHandlingException, ParseException
-	{
-		ArrayList<Customer> c = new ArrayList<>();
-		Date d = verifyDate(temp);
-		
-		for(Customer ctm : customer)
-			if(ctm.getDate().after(d))
-				c.add(ctm);
-		
-		return c;
-	}
-	
-	public static ArrayList<Customer> customerByLocation(String temp, ArrayList<Customer> customer) 
-			throws CustomerHandlingException
-	{
-		ArrayList<Customer> c = new ArrayList<>();
-		
-		for(Customer ctm : customer)
-			if(ctm.getAdhaar() != null)
-				if(temp.equals(ctm.getAdhaar().getLocation()))
-					c.add(ctm);
-			
-		return c;
-	}
 
 }
