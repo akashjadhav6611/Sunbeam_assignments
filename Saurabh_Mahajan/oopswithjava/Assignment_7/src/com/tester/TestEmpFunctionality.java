@@ -40,8 +40,15 @@ public class TestEmpFunctionality {
 				case 3:
 					if(stack != null)
 					{
+						if(stack instanceof FixedStack)
+							if(((FixedStack)stack).isStackFull())
+							{
+								System.out.println("Stack is full !!!");
+								break;
+							}
 						System.out.println("Enter employee details : Name Salary");
 						stack.push(new Employee(scan.next(), scan.nextDouble()));
+					
 					}else
 						System.out.println("NO stack choosen !!!");
 					break;

@@ -1,6 +1,5 @@
 package com.app.employee;
 
-import java.util.Arrays;
 
 public class GrowableStack implements Stack 
 {
