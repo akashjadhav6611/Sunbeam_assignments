@@ -23,6 +23,12 @@ public class FixedStacks implements Stacks_P {
 			}
 			
 
+			public boolean isStackFull() {
+				if (top == emp.length-1) {
+					return true;
+				}
+				return false;
+			}
 			@Override
 			public void pop() {
 				// TODO Auto-generated method stub
