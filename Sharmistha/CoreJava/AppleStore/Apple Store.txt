@@ -1,0 +1,21 @@
+Lets create a Apple store management system
+
+4.1 Customer : name(string),email(string),password(string),productname(string),dateofpurchasing(Date),device(enum : IPHONE, MACBOOK, WATCH, IPAD) along with prices
+
+Unique id : customer email
+Create a composition between Customer & Order ID
+OrderID  : int ID, int no. of units
+Only after  successful customer registration , Order ID can be linked to the customer.
+
+4.2 Create custom exception class to represent errors
+AppleDeviceHandlingException
+
+4.3 Create in "utils" package : ValidationRules
+Rules 
+email must contain "@" & should be from ".com" domain
+password must be min 4 max 10 chars long
+dop should not be before 1st Jan 2022 and after 30th nov,2022
+no duplicate registrations.
+
+4.4 Create a simple tester to test customer registration n linking to Order ID.
+
