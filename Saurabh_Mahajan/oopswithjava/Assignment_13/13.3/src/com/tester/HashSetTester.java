@@ -23,7 +23,12 @@ public class HashSetTester {
 		{
 		    public int compare(Book b1, Book b2) 
 		    {
-		    	return b1.getDate().compareTo(b2.getDate());
+		    	int temp = b1.getDate().compareTo(b2.getDate());
+		    	if(temp == 0)
+		    	{
+		    		return 1;
+		    	}
+		    	return temp;
 		    }
 		});
 		
@@ -73,6 +78,7 @@ public class HashSetTester {
 				System.out.println("Invalid choice !!!");
 				break;
 			}
+			scan.nextLine();
 		}
 
 		scan.close();
