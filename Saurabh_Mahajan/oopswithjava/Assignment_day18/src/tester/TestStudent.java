@@ -50,9 +50,12 @@ public class TestStudent
 						//Comparator<Student> gpaComp2 = (s1,s2) -> ((Double)s1.getGpa()).compareTo(s2.getGpa());
 						//Comparator<Student> gpaComp3 = comparing(s -> s.getGpa());
 						Comparator<Student> gpaComp = comparing(Student :: getGpa);
-						studentList.sort(gpaComp);
-						System.out.println("List sorted by gpa : ");
-						studentList.forEach(System.out::println);
+//						studentList.sort(gpaComp);
+//						System.out.println("List sorted by gpa : ");
+//						studentList.forEach(System.out::println);
+						studentList.stream().//converting list to stream
+						sorted(gpaComp).//sorting by provided comparator i.e. by gpa
+						forEach(System.out::println);//printing sorted stream
 						break;
 						
 					case 3:
