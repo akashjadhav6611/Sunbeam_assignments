@@ -15,7 +15,7 @@ public abstract class Emp
 	}
 	
 	public Emp(String name, String deptId, double basic) 
-	{
+	{      
 		this.id = ++count;
 		this.name = name;
 		this.deptId = deptId;
