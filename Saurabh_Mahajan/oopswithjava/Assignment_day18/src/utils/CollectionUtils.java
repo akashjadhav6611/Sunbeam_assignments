@@ -30,11 +30,11 @@ public class CollectionUtils
 		
 		studentList.add(new Student("14", "sam", parse("1998-01-01"), JAVA, 7.95));
 		
-		studentList.add(new Student("11", "john", parse("1984-06-21"), DBT, 6.94));
+		studentList.add(new Student("11", "john", parse("1984-06-21"), SE, 6.94));
 		
 		studentList.add(new Student("07", "castiel", parse("1976-09-13"), ANGULAR, 3.99));
 		
-		studentList.add(new Student("15", "abbadon", parse("1979-12-26"), DBT, 7.22));
+		studentList.add(new Student("15", "abbadon", parse("1979-12-26"), SE, 7.22));
 		
 		studentList.add(new Student("06", "chuck", parse("1935-04-08"), REACT, 4.55));
 		
@@ -46,7 +46,7 @@ public class CollectionUtils
 		
 		studentList.add(new Student("12", "charlie", parse("2000-07-02"), JAVA, 3.88));
 		
-		studentList.add(new Student("01", "jessica", parse("1999-11-19"), DBT, 3.26));
+		studentList.add(new Student("01", "jessica", parse("1999-11-19"), SE, 3.26));
 		
 		studentList.add(new Student("10", "jody", parse("1991-12-24"), JAVA, 4.90));
 		
