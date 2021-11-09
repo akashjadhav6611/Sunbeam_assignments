@@ -13,6 +13,8 @@ import java.util.TreeMap;
 import com.app.core.Student;
 import com.app.core.Subject;
 
+import custom_exception.StudentHandlingException;
+
 public class TestStudent 
 {
 
@@ -31,7 +33,7 @@ public class TestStudent
 					System.out.println("\n1.Display by list 2.Sort by gpa 3.Sum of gpa by specific subject "
 							+ "\n4.Average of gpa by specific subject 5.Find topper of subject \n6.Find failed students "
 							+ "7.Find no of students with distinction \n8.Display by map 9.Sort by roll no(map) "
-							+ "10.Sort by dob with map");
+							+ "10.Sort by dob with map \n11.Sort by rollNo desc");
 					System.out.println("0.Exit");
 					System.out.println("Enter choice : ");
 					
@@ -76,7 +78,8 @@ public class TestStudent
 									filter(s -> s.getSubject() == sub4).//intermediate operation - filtering by subject
 									mapToDouble(Student :: getGpa).//intermediate - getting(mapping) gpa's of filtered subjects
 									average().//average - higher order function
-									orElse(0);//can be tried with orElseThrow(supplier)
+									//if no student choosen this subject
+									orElseThrow(() -> new StudentHandlingException(sub4+" : No student has choosen this subject !!!"));
 						
 						System.out.println("Average : "+avg);
 						break;
@@ -84,15 +87,13 @@ public class TestStudent
 					case 5:
 						System.out.println("Enter subject name : ");
 						Subject sub5 = Subject.valueOf(scan.next().toUpperCase());//string to enum
-						double max = studentList.stream().//converting list to stream
+						Student max = studentList.stream().//converting list to stream
 									filter(s -> s.getSubject() == sub5).//intermediate operation - filtering by subject
-									mapToDouble(Student :: getGpa).//intermediate - getting(mapping) gpa's of filtered subjects
-									max().//maximum - higher order function
-									getAsDouble();
+									max(comparing(Student :: getGpa)).//finding max gpa
+									//if no student choosen this subject
+									orElseThrow(() -> new StudentHandlingException(sub5+" : No student has choosen this subject !!!"));
 						
-						studentList.stream().//converting list to stream
-						filter(s -> s.getGpa() == max).//intermediate - filtering max gpa in given subject
-						forEach(s -> System.out.println("Student name : "+s.getName()));//printing name of topper - terminating operation
+						System.out.println("Name : "+max.getName());
 						break;
 						
 					case 6:
@@ -128,9 +129,9 @@ public class TestStudent
 						
 					case 9:
 						//this constructor of treemap automatically sorts by key i.e. String rollNo
-						TreeMap<String, Student> studentTreeMap = new TreeMap<>(studentMap);
+						TreeMap<String, Student> studentTreeMap9 = new TreeMap<>(studentMap);
 						//printing sorted map values
-						studentTreeMap.forEach((s,v) -> System.out.println(v));
+						studentTreeMap9.forEach((s,v) -> System.out.println(v));
 						break;
 						
 					case 10:
@@ -142,6 +143,18 @@ public class TestStudent
 						studentCollection.stream().//Collection to stream
 						sorted(dobComp).//sorting by custom comparator
 						forEach(System.out::println);//termination function
+						break;
+						
+					case 11:
+						//sorting by key descending
+						Comparator<String> rollComp = (s1,s2) -> s2.compareTo(s1);
+						//cannot use comparator on TreeMap on V, only possible on K
+						//using comparator constructor of TreeMap
+						TreeMap<String, Student> studentTreeMap12 = new TreeMap<>(rollComp);
+						//adding all K and V of Map to TreeMap
+						studentTreeMap12.putAll(studentMap);
+						//printing all V of TreeMap
+						studentTreeMap12.forEach((s,v) -> System.out.println(v));
 						break;
 						
 					case 0:
